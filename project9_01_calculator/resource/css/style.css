@@ -1,0 +1,311 @@
+/* -------------------- */
+/* 기본설정 */
+/* -------------------- */
+
+body{
+    color:#fff;
+}
+
+/* 루트값 */
+
+:root{
+    --primary_color:#23d8b5;
+    --h2_font-size:42px;
+    --h3_font-size:24px;
+    --h3_font-weight:400;
+    --text-align:center;
+    --margin-bottom:60px;
+}
+
+
+/* 컨테이너클래스 */
+.container {
+    max-width:1160px;
+    margin: 0 auto;
+}
+
+/* 클리어픽스 */
+.clearfix::after{
+    content: '';
+    clear: both;
+    display: block;
+}
+
+
+/* 좌우 보더라인 제거 */
+
+table tr td:first-child{
+    border-left: none;
+}
+
+table tr td:last-child  {
+    border-right: none;
+}
+
+/* -------------------- */
+/* 버튼설정 */
+/* -------------------- */
+
+
+/* 사칙연산 버튼 */
+.primary_color{
+    background: var(--primary_color);
+    color: #fff;
+}
+
+.primary_color:hover{
+    background: #22C6A7;
+    color: #f5f5f5;
+}
+
+.primary_color:active{
+    background: #1CA68C;
+    color: #f5f5f5;
+}
+
+
+/* 숫자버튼 */
+button {
+    background:#f2f2f2;
+}
+
+button:hover {
+    background: #ddd;
+}
+
+button:active {
+    background: #ccc;
+}
+
+
+/* reset, percent 버튼컬러  디폴트*/
+
+.js---reset, .js---percent {
+    background: #ccc;
+}
+
+.js---reset:hover, .js---percent:hover {
+    background: #bbb;
+}
+
+.js---reset:active, .js---percent:active {
+    background: #a5a5a5;
+}
+
+/* ---------------------- */
+/* 재사용 컴퍼넌트 */
+/* ---------------------- */
+
+
+
+/* --------------------- */
+/*HEADER */
+/* --------------------- */
+
+.header {
+    width: 100%;
+    height: 100vh;
+}
+
+/***** NAV CONTAINER *****/
+
+.header--nav {
+    background: #fff;
+    padding:16px 0;
+}
+
+/***** HERO CONTAINER *****/
+
+.header--hero {
+    background: #ff4760;
+    padding:10px 0;
+    height:937px;  
+}
+
+.hero h1{
+    font-size:90px ;
+    padding: 20px 0 60px 0;
+}
+
+
+.hero p{
+    font-size:24px ;
+    display: inline-block;
+    font-weight: 400;
+    margin-top: 172px;
+}
+
+.hero--btn {
+    padding: 20px 35px;
+    background: var(--primary_color);
+    border-radius:4px;
+    font-weight: 900;
+    display: inline-block;
+}
+
+.hero--btn img{
+    margin-left: 15px;
+}
+
+/* --------------------- */
+/* SECTION_DESCRIPTION */
+/* --------------------- */
+
+
+.main--description {
+    height:auto;
+    background: #555;
+    overflow: auto;
+}
+
+.descrpition--h2 {
+    text-align: var(--text-align);
+    color: var(--primary_color);
+    font-size: var(--h2_font-size);
+    margin-bottom: var(--margin-bottom);
+}
+
+.description--box:last-child{
+    margin-right:0;
+}
+
+.description--box{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 30px;
+    width: 30%;
+    height: 370px;
+    float: left;
+    margin-right:5%;
+    background: #333333;
+    border-radius: 5px;
+}
+
+
+.fas{
+    margin-bottom: 40px;
+}
+
+
+.box--h3{
+    font-weight: var(--h3_font-weight);
+    font-size: var(--h3_font-size);
+    text-align: var(--text-align);
+}
+
+
+
+/* --------------------- */
+/* SECTION_CALCULATOR */
+/* --------------------- */
+
+
+.section_calculator, .section_description {
+    padding-top:120px;
+    height: auto;
+}
+
+
+
+/* ----- CALCULATOR ----- */
+
+.calculator {
+    width:100%;
+    height: auto;
+    border-radius: 5px;
+    margin: 0 auto;
+}
+
+
+.calculator--h2 {
+    text-align: var(--text-align);
+    font-size: var(--h2_font-size);
+    color: var(--primary_color);
+    margin-bottom: 30px;
+}
+
+.calculator--h3 {
+    text-align: var(--text-align);
+    font-size: var(--h3_font-size);
+    font-weight: var(--h3_font-weight);
+    color: #333;
+    margin-bottom: var(--margin-bottom);
+}
+
+
+/* ----- OUTPUT_PANEL----- */
+
+.calculator--output_panel {
+    background:#333;
+    height: 158px;
+    text-align: right;
+}
+
+.js---previous_result{
+    /* background: #888; */
+    height: 40%;
+    font-size:24px;
+    padding:40px 30px 0 0;
+    color: #999;
+}
+
+.js---current_result {
+    /* background:#999; */
+    padding-right: 30px;
+    font-size:56px;
+    height: 60%;
+}
+
+/* ----- INPUT_PANEL ----- */
+
+.calculator--input_panel table {
+    width:100%;
+    height:374px;
+    border-collapse: collapse;
+    border-spacing: 0;
+
+}
+
+
+.calculator--input_panel td {
+    text-align: center;
+    width:25%;
+    border:1px solid #fff;
+}
+
+.calculator--input_panel button {
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+    font-size:28px;
+    font-weight:700;  
+}
+
+
+/* ----- FOOTER ----- */
+
+#footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 90px;
+    background-color: #ebebeb;
+    margin-top: 120px;
+}
+
+#footer > .container {
+    width: 100%;
+}
+
+.footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.footer_text {
+    color: #333;
+}
+

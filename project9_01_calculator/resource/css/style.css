@@ -29,14 +29,13 @@ body{
 
 /* 좌우 보더라인 제거 */
 
-table tr .border_right_delete {
-    border-right: none
+table tr td:first-child{
+    border-left: none;
 }
 
-table tr .border_left_delete {
-    border-left: none
+table tr td:last-child  {
+    border-right: none;
 }
-
 
 /* -------------------- */
 /* 버튼설정 */

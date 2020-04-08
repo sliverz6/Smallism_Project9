@@ -8,6 +8,7 @@ const divisionBtn = document.querySelector('.js---division');
 const resultBtn = document.querySelector('.js---result');
 const remainderBtn = document.querySelector('.js---remainder');
 const resetBtn = document.querySelector('.js---reset')
+const dotBtn = document.querySelector('.js---number_dot');
 
 const num0 = document.querySelector('.js---number_0');
 const num1 = document.querySelector('.js---number_1');
@@ -43,7 +44,9 @@ function writeCalcLog(value) {
 writeEnteredNumber(DEFAULT_ENTERED_NUMBER);
 
 for (let number in numbers) {
-    numbers[number].addEventListener('click', function() {
+    numbers[number].addEventListener('click', function(event) {
+        event.preventDefault();
+
         if (resetBtnClicked) {
             reset();
         }
@@ -174,27 +177,28 @@ function calulateProcess(operator) {
     initialNumber = calculrateResult;
 }
 
-function addBtnHandler() {
+addBtn.addEventListener('click', function(event) {
+    event.preventDefault();
     calulateProcess('+');
-}
-
-function subtractBtnHandler() {
-    calulateProcess('-');
-}
-
-function multiplyBtnHandler() {
-    calulateProcess('*');
-}
-
-function divideBtnHandler() {
-    calulateProcess('/');
-}
-
-function remainderBtnHandler() {
-    calulateProcess('%');
-}
-
-function resultBtnHandler() {
+});
+subtractBtn.addEventListener('click', function(event) {
+    event.preventDefault();
+    calulateProcess('-')
+});
+multiplyBtn.addEventListener('click', function(event) {
+    event.preventDefault();
+    calulateProcess('*')
+});
+divisionBtn.addEventListener('click', function(event) {
+    event.preventDefault();
+    calulateProcess('/')
+});
+remainderBtn.addEventListener('click', function(event) {
+    event.preventDefault();
+    calulateProcess('%')
+});
+resultBtn.addEventListener('click', function(event) {
+    event.preventDefault();
     let calcDescription;
     let calculrateResult;
     if (resetBtnClicked) {
@@ -214,17 +218,12 @@ function resultBtnHandler() {
 
     initialNumber = calculrateResult;
     resetBtnClicked = true;
-}
-
-function resetBtnHandler() {
+});
+resetBtn.addEventListener('click', function(event) {
+    event.preventDefault();
     reset();
+});
 
-}
-
-addBtn.addEventListener('click', addBtnHandler);
-subtractBtn.addEventListener('click', subtractBtnHandler);
-multiplyBtn.addEventListener('click', multiplyBtnHandler);
-divisionBtn.addEventListener('click', divideBtnHandler);
-remainderBtn.addEventListener('click', remainderBtnHandler);
-resultBtn.addEventListener('click', resultBtnHandler);
-resetBtn.addEventListener('click', resetBtnHandler);
+dotBtn.addEventListener('click', function() {
+    event.preventDefault();
+});

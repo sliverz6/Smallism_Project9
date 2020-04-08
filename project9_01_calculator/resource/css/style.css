@@ -10,10 +10,11 @@ body{
 
 :root{
     --primary_color:#23d8b5;
-    --h2_font:42px;
-    --h3_font:24px;
-    --h3_font-weight :400;
+    --h2_font-size:42px;
+    --h3_font-size:24px;
+    --h3_font-weight:400;
     --text-align:center;
+    --margin-bottom:60px;
 }
 
 
@@ -160,7 +161,8 @@ button:active {
 .descrpition--h2 {
     text-align: var(--text-align);
     color: var(--primary_color);
-    font-size: var(--h2_font);
+    font-size: var(--h2_font-size);
+    margin-bottom: var(--margin-bottom);
 }
 
 .description--box:last-child{
@@ -168,15 +170,29 @@ button:active {
 }
 
 .description--box{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 30px;
     width: 30%;
     height: 370px;
     float: left;
     margin-right:5%;
     background: #333333;
+    border-radius: 5px;
 }
+
+
+.fas{
+    margin-bottom: 40px;
+}
+
 
 .box--h3{
     font-weight: var(--h3_font-weight);
+    font-size: var(--h3_font-size);
+    text-align: var(--text-align);
 }
 
 
@@ -186,8 +202,8 @@ button:active {
 /* --------------------- */
 
 
-.section_calculator{
-    padding-top:202px;
+.section_calculator, .section_description {
+    padding-top:120px;
     height: auto;
 }
 
@@ -205,15 +221,17 @@ button:active {
 
 .calculator--h2 {
     text-align: var(--text-align);
-    font-size: var(--h2_font);
+    font-size: var(--h2_font-size);
     color: var(--primary_color);
+    margin-bottom: 30px;
 }
 
 .calculator--h3 {
     text-align: var(--text-align);
-    font-size: var(--h3_font);
+    font-size: var(--h3_font-size);
     font-weight: var(--h3_font-weight);
-    color: #333
+    color: #333;
+    margin-bottom: var(--margin-bottom);
 }
 
 
@@ -274,6 +292,7 @@ button:active {
     align-items: center;
     height: 90px;
     background-color: #ebebeb;
+    margin-top: 120px;
 }
 
 #footer > .container {

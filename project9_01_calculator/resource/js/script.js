@@ -19,77 +19,212 @@ const num6 = document.querySelector('.js---number_6');
 const num7 = document.querySelector('.js---number_7');
 const num8 = document.querySelector('.js---number_8');
 const num9 = document.querySelector('.js---number_9');
-
 let numbers = [num0, num1, num2, num3, num4, num5, num6, num7, num8, num9];
-let defaultResult = 0;
-let displayResult = '';
-let operationType = '';
-let calcDescription = '';
-let prevResult = defaultResult;
-let initialResult;
 
+const DEFAULT_NUMBER = 0;
+const DEFAULT_ENTERED_NUMBER = '0';
 
-function writeCurrentResult(value) {
+let enteredNumber = DEFAULT_ENTERED_NUMBER;
+let initialNumber = DEFAULT_NUMBER;
+let calcLogEntries = [];
+let resetCalcLog = false;
+let resetBtnClicked = false;
+let operatorBtnClicked = false;
+let operatateType;
+
+function writeEnteredNumber(value) {
     currentResultEl.textContent = value;
 }
 
-function writePreviousResult(value) {
+function writeCalcLog(value) {
     previousResultEl.textContent = value;
 }
 
-function calcResult(operation, initialResult) {
-    if (operation === 'ADD') {
-        prevResult += parseInt(initialResult);
-    } else if (operation === 'SUBTRACT') {
-        prevResult -= parseInt(initialResult);
-    } else {
-        prevResult = parseInt(initialResult);
-    }
-    writeCurrentResult(prevResult);
-    displayResult = '';
-}
+writeEnteredNumber(DEFAULT_ENTERED_NUMBER);
 
-function writeLog(operation, prevResult) {
-    let operator;
-    if (operation === 'ADD') {
-        operator = '+';
-    } else if (operation === 'SUBTRACT') {
-        operator = '-';
-    } else if (operation === 'RESULT') {
-        operator = '=';
-    }
-    calcDescription += `${prevResult} ${operator} `
-    writePreviousResult(calcDescription);
-}
+for (let number in numbers) {
+    numbers[number].addEventListener('click', function() {
+        if (resetBtnClicked) {
+            reset();
+        }
 
-writeCurrentResult(defaultResult);
+        if (resetCalcLog) {
+            writeCalcLog();
+            resetCalcLog = false;
+        }
 
-for (let num = 0; num < numbers.length; num++) {
-    numbers[num].addEventListener('click', function() {
-        displayResult += num.toString();
-        writeCurrentResult(displayResult);
-        initialResult = displayResult;
+        if (enteredNumber === DEFAULT_ENTERED_NUMBER) {
+            enteredNumber = '';
+        } 
+        enteredNumber += number;
+        operatorBtnClicked = false;
+        writeEnteredNumber(enteredNumber);
     });
 }
 
-addBtn.addEventListener('click', function() {  
-    calcResult(operationType, initialResult);
-    operationType = 'ADD';
-    writeLog(operationType, initialResult);
-});
+function displayCalcLog(beforeResult) {
+    let description = '';
 
-subtractBtn.addEventListener('click', function() {
-    calcResult(operationType, initialResult);
-    operationType = 'SUBTRACT';
-    writeLog(operationType, initialResult);
-});
+    if (beforeResult) {
+        description = `${beforeResult} `;
+        description += `${  calcLogEntries[calcLogEntries.length - 2]['operator']} `
+        description += ` ${ calcLogEntries[calcLogEntries.length - 1]['previousNumber']} `; 
+        description += ` = `; 
+        return description;
+    }
 
-resultBtn.addEventListener('click', function() {
-    calcResult(operationType, initialResult);
-    operationType = 'RESULT';
-    writeLog(operationType, initialResult);
-});
+    for (let log in calcLogEntries) {
+        description += `${calcLogEntries[log].previousNumber} `;
+        description += `${calcLogEntries[log].operator} `;
+    }
+    return description;
+}
 
-// 더하기, 빼기 버튼을 누르면
-// 계산 함수를 실행
-// 그리고 뒤에다 연산자 붙이기
+function updateCalcLog(previousNumber, operation) {
+    calcLogEntries.pop();
+    const calcLog = {
+        previousNumber: previousNumber,
+        operator: operation
+    };
+    calcLogEntries.push(calcLog);
+}
+
+
+function inputToCalcLog(previousNumber, operator) {
+    const calcLog = {
+        previousNumber: previousNumber,
+        operator: operator
+    };
+    calcLogEntries.push(calcLog);
+}
+
+function calculateValue(previousResult) {
+    let result = DEFAULT_NUMBER;
+    let operationType = '';
+
+    if (previousResult) {
+        if (calcLogEntries[calcLogEntries.length - 2]['operator'] === '+') {
+            previousResult += parseInt(calcLogEntries[calcLogEntries.length - 1]['previousNumber']);
+        } else if (calcLogEntries[calcLogEntries.length - 2]['operator'] === '-') {
+            previousResult -= parseInt(calcLogEntries[calcLogEntries.length - 1]['previousNumber']);
+        } else if (calcLogEntries[calcLogEntries.length - 2]['operator'] === '*') {
+            previousResult *= parseInt(calcLogEntries[calcLogEntries.length - 1]['previousNumber']);
+        } else if (calcLogEntries[calcLogEntries.length - 2]['operator'] === '/') {
+            previousResult /= parseInt(calcLogEntries[calcLogEntries.length - 1]['previousNumber']);
+        } else if (calcLogEntries[calcLogEntries.length - 2]['operator'] === '%') {
+            previousResult %= parseInt(calcLogEntries[calcLogEntries.length - 1]['previousNumber']);
+        }
+        return previousResult;
+    }
+
+    for (let log in calcLogEntries) { 
+        if (operationType === '+') {
+            result += parseInt(calcLogEntries[log].previousNumber);
+        } else if (operationType === '-') {
+            result -= parseInt(calcLogEntries[log].previousNumber);
+        } else if (operationType === '*') {
+            result *= parseInt(calcLogEntries[log].previousNumber);
+        } else if (operationType === '/') {
+            result /= parseInt(calcLogEntries[log].previousNumber);
+        } else if (operationType === '%') {
+            result %= parseInt(calcLogEntries[log].previousNumber);
+        } else if (!operationType){
+            result += parseInt(calcLogEntries[log].previousNumber);
+        } 
+
+        if (calcLogEntries[log].operator === '+') {
+            operationType = '+';
+        } else if (calcLogEntries[log].operator === '-') {
+            operationType = '-';
+        } else if (calcLogEntries[log].operator === '*') {
+            operationType = '*';
+        } else if (calcLogEntries[log].operator === '/') {
+            operationType = '/';
+        } else if (calcLogEntries[log].operator === '%') {
+            operationType = '%';
+        }
+    }
+    return result;
+}
+
+function reset() {
+    calcLogEntries = [];
+    resetCalcLog = true;
+    enteredNumber = '0';
+    writeCalcLog();
+    writeEnteredNumber(enteredNumber);
+}
+
+function calulateProcess(operator) {
+    if (operatorBtnClicked) {
+        updateCalcLog(initialNumber, operator);
+        const calcDescription = displayCalcLog();
+        writeCalcLog(calcDescription);
+        return;
+    }
+    operatorBtnClicked = true;
+    const operation = operator;
+    inputToCalcLog(enteredNumber, operation);
+    const calcDescription = displayCalcLog();
+    enteredNumber = DEFAULT_ENTERED_NUMBER;
+    writeCalcLog(calcDescription);
+    const calculrateResult = calculateValue();
+    writeEnteredNumber(calculrateResult);
+    resetBtnClicked = false;
+    initialNumber = calculrateResult;
+}
+
+function addBtnHandler() {
+    calulateProcess('+');
+}
+
+function subtractBtnHandler() {
+    calulateProcess('-');
+}
+
+function multiplyBtnHandler() {
+    calulateProcess('*');
+}
+
+function divideBtnHandler() {
+    calulateProcess('/');
+}
+
+function remainderBtnHandler() {
+    calulateProcess('%');
+}
+
+function resultBtnHandler() {
+    let calcDescription;
+    let calculrateResult;
+    if (resetBtnClicked) {
+        calculrateResult = calculateValue(initialNumber);
+        writeEnteredNumber(calculrateResult);
+        calcDescription = displayCalcLog(initialNumber);
+        writeCalcLog(calcDescription);
+    } else {
+        const operation = '=';
+        inputToCalcLog(enteredNumber, operation);
+        let calcDescription = displayCalcLog();
+        enteredNumber = DEFAULT_ENTERED_NUMBER;
+        writeCalcLog(calcDescription);
+        calculrateResult = calculateValue();
+        writeEnteredNumber(calculrateResult);
+    }
+
+    initialNumber = calculrateResult;
+    resetBtnClicked = true;
+}
+
+function resetBtnHandler() {
+    reset();
+
+}
+
+addBtn.addEventListener('click', addBtnHandler);
+subtractBtn.addEventListener('click', subtractBtnHandler);
+multiplyBtn.addEventListener('click', multiplyBtnHandler);
+divisionBtn.addEventListener('click', divideBtnHandler);
+remainderBtn.addEventListener('click', remainderBtnHandler);
+resultBtn.addEventListener('click', resultBtnHandler);
+resetBtn.addEventListener('click', resetBtnHandler);

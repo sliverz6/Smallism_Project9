@@ -16,79 +16,111 @@
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;900&display=swap" rel="stylesheet">
 
     <!-- SCRIPT -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css" />
     <script src="resource/js/script.js" defer></script>
 
 </head>
 <body>
-<section id="main_content">
-    <header class="main">
-        <nav class="main--nav">
-            <div class="container">
+
+    <header id="header">
+        <nav class="header--nav">
+            <div class="nav container">
             <a href="../index.html"><img src="resource/img/logo_project9.jpg" alt="로고"></a>
             </div>
         </nav>
-        <div class="main--hero">
-            <div class="container">
-            <h3>Project 1</h3>
-            <h4> / 스몰리즘의 첫번째 프로젝트</h4>
-            <h2>CALCULATOR</h2>
-            <a href="https://github.com/sliverz6/Smallism_Project9" class="hero--btn">코드 받아보기 <img src="resource/img/icon_right_arraow.png" alt="화살표"></a>
+        <div class="header--hero">
+            <div class="hero container">
+                <p>
+                    <span class="">Project 1</span> / 스몰리즘의 첫번째 프로젝트</span>
+                </p>
+                <h1>CALCULATOR</h1>
+                <a href="https://github.com/sliverz6/Smallism_Project9" class="hero--btn">코드 받아보기
+                    <img src="resource/img/icon_right_arraow.png" alt="화살표">
+                </a>
             </div>
         </div>
     </header>
-    <section class="description container clearfix">
-        <div class="desc--box_01">
-            <img src="#" alt=""><p>키보드와 마우스를 사용하여 계산을 해보세요.</p>
-        </div>
-        <div class="desc--box_02">
-            <p>작게 더 작게 본질만 남겼습니다.</p>
-        </div>
-        <div class="desc--box_03">
-            <p>코드를 확인하고 프로젝트를 제작해보세요.</p>
-        </div>
-    </section>
-</section>
 
-<!-- CALCULATOR    -->
-<main id="calculator_content">
-    <div class="calculator">
-        <div class="calculator--output_panel">
-            <div class="js---previous_result"></div>
-            <h2 class="js---current_result"></h2>
+    <main id="main">
+        <section class="section_description clearfix">
+            <div class="description container">
+                <h2 class="descrpition--h2">TITLE</h2>
+                <div class="description--box">
+                    <ion-icon name="heart"></ion-icon>
+                    <h3 class="box--h3">키보드와 마우스를 사용하여 계산을 해보세요.</h3>
+                </div>
+                <div class="description--box">
+                    <h3 class="box--h3">작게 더 작게 본질만 남겼습니다.</h3>
+                </div>
+                <div class="description--box">
+                    <h3 class="box--h3">코드를 확인하고 프로젝트를 제작해보세요.</h3>
+                </div>
+            </div>
+        </section>
+
+        <!-- CALCULATOR    -->
+        <section class="section_calculator">
+            <div class="calculator container">
+                <h2 class="calculator--h2">TITLE</h2>
+                <h3 class="calculator--h3">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Esse, earum?</h3>
+                <div class="calculator--output_panel">
+                    <div class="calculation_log js---previous_result"></div>
+                    <div class="current_result js---current_result"></div>
+                </div>
+                <div class="calculator--input_panel">
+                    <table>
+                        <tr>
+                            <td colspan="2"><button class="js---reset">AC</button></td>
+                            <td><button class="js---remainder">%</button></td>
+                            <td><button class="js---division primary_color">&divide;</button></td>
+                        </tr>
+                        <tr>
+                            <td><button class="js---number_7">7</button></td>
+                            <td><button class="js---number_8">8</button></td>
+                            <td><button class="js---number_9">9</button></td>
+                            <td><button class="js---multiply primary_color">&times;</button></td>
+                        </tr>
+                        <tr>
+                            <td><button class="js---number_4">4</button></td>
+                            <td><button class="js---number_5">5</button></td>
+                            <td><button class="js---number_6">6</button></td>
+                            <td><button class="js---subtract primary_color">-</button></td>
+                        </tr>
+                        <tr>
+                            <td><button class="js---number_1">1</button></td>
+                            <td><button class="js---number_2">2</button></td>
+                            <td><button class="js---number_3">3</button></td>
+                            <td><button class="js---add primary_color">+</button></td>
+                        </tr>
+                        <tr>
+                            <td colspan="2"><button class="js---number_0">0</button></td>
+                            <td><button class="js---number_dot">.</button></td>
+                            <td><button class="js---result primary_color">=</button></td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </section>
+    </main>
+    <!-- footer -->
+    <footer id="footer">
+        <div class="container">
+            <div class="footer">
+                <div class="footer_img">
+                    <a href="https://smallism.netlify.com">
+                        <img 
+                        src="resource/img/로고_흑.png" 
+                        srcset="
+                        resource/img/로고_흑@2x.png 2x, 
+                        resource/img/로고_흑@3x.png 3x"
+                        alt="스몰리즘 로고">
+                    </a>
+                </div>
+                <div class="footer_text">
+                    <address>COPYRIGHT Smallism All reserved</address>
+                </div>
+            </div>
         </div>
-        <div class="calculator--input_panel">
-            <table>
-                <tr>
-                    <td colspan="2"><button class="js---reset">AC</button></td>
-                    <td><button class="js---remainder">%</button></td>
-                    <td><button class="js---division primary_color">&divide;</button></td>
-                </tr>
-                <tr>
-                    <td><button class="js---number_7">7</button></td>
-                    <td><button class="js---number_8">8</button></td>
-                    <td><button class="js---number_9">9</button></td>
-                    <td><button class="js---multiply primary_color">&times;</button></td>
-                </tr>
-                <tr>
-                    <td><button class="js---number_4">4</button></td>
-                    <td><button class="js---number_5">5</button></td>
-                    <td><button class="js---number_6">6</button></td>
-                    <td><button class="js---subtract primary_color">-</button></td>
-                </tr>
-                <tr>
-                    <td><button class="js---number_1">1</button></td>
-                    <td><button class="js---number_2">2</button></td>
-                    <td><button class="js---number_3">3</button></td>
-                    <td><button class="js---add primary_color">+</button></td>
-                </tr>
-                <tr>
-                    <td colspan="2"><button class="js---number_0">0</button></td>
-                    <td><button class="js---number_dot">.</button></td>
-                    <td><button class="js---result primary_color">=</button></td>
-                </tr>
-            </table>
-        </div>
-    </div>
-</main>
+    </footer>
 </body>
 </html>

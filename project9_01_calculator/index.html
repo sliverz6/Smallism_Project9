@@ -16,7 +16,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;900&display=swap" rel="stylesheet">
 
     <!-- SCRIPT -->
-    <script src="resource/js/script.js"></script>
+    <script src="resource/js/script.js" defer></script>
 
 </head>
 <body>
@@ -47,8 +47,8 @@
 <section id="calculator_content">
     <div class="calculator">
         <div class="calculator--output_panel">
-            <div class="js---previous_result">2 + 3 =</div>
-            <h2 class="js---current_result">5</h2>
+            <div class="js---previous_result"></div>
+            <h2 class="js---current_result"></h2>
         </div>
         
         <div class="calculator--input_panel">
@@ -59,7 +59,7 @@
                 <tr>
                     <!-- RESET,PERCENT -->
                     <td colspan="2" class="border_left_delete"><button class="js---reset">AC</button></td>
-                    <td><button class="js---percent">%</button></td>
+                    <td><button class="js---remainder">%</button></td>
                     <!-- FOUR ARITHMETIC OPERAION -->
                     <td class="border_right_delete"><button class="js---division primary_color">&divide;</button></td>
                 </tr>

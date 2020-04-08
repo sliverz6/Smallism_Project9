@@ -11,7 +11,7 @@ body{
 :root{
     --primary_color:#23d8b5;
     --h2_font-size:42px;
-    --h3_font-size:24px;
+    --h3_font-size:22px;
     --h3_font-weight:400;
     --text-align:center;
     --margin-bottom:60px;
@@ -147,6 +147,10 @@ button:active {
     margin-top: 172px;
 }
 
+.hero--p--span{
+    font-weight: 700;
+}
+
 .hero--btn {
     padding: 20px 35px;
     background: var(--primary_color);
@@ -198,6 +202,8 @@ button:active {
 
 .fas{
     margin-bottom: 40px;
+    font-size: 70px;
+    color: var(--primary_color);
 }
 
 

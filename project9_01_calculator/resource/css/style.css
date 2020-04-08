@@ -6,10 +6,24 @@ body{
     color:#fff;
 }
 
+/* 루트값 */
+
+:root{
+    --primary_color:#23d8b5;
+}
+
+
 /* 컨테이너클래스 */
 .container {
     max-width:1160px;
     margin: 0 auto;
+}
+
+/* 클리어픽스 */
+.clearfix::after{
+    content: '';
+    clear: both;
+    display: block;
 }
 
 
@@ -31,7 +45,7 @@ table tr .border_left_delete {
 
 /* 사칙연산 버튼 */
 .primary_color{
-    background: #23d8b5;
+    background: var(--primary_color);
     color: #fff;
 }
 
@@ -123,7 +137,7 @@ button:active {
 
 .hero--btn {
     padding: 20px 35px;
-    background: #25f3cc;
+    background: var(--primary_color);
     border-radius:4px;
     font-weight: 900;
     display: inline-block;
@@ -139,33 +153,47 @@ button:active {
     position: relative;
 }
 
+.description {
+    position: absolute;
+    top:90%;
+    left:20%;
+    transform: translateY(-10%);
+}
+
+.hero_text_box {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    /* width: 100%; */
+}
+
+.description div:last-child{
+    margin-right: 0;
+}
 
 .desc--box_01 {
     width: 370px;
     height: 370px;
+    float: left;
+    margin-right: 25px;
     background: #333333;
-    position: absolute;
-    top:800px;
 }
 
 .desc--box_02 {
     width: 370px;
-    margin-right:20px;
     height: 370px;
+    float: left;
+    margin-right: 25px;
     background: #333333;
-    position: absolute;
-    top:800px;
-    right:0;
 }
 
 .desc--box_03 {
     width: 370px;
-    margin-right:20px;
     height: 370px;
+    float: left;
+    margin-right: 25px;
     background: #333333;
-    position: absolute;
-    top:800px;
-    right: 0;
 }
 
 

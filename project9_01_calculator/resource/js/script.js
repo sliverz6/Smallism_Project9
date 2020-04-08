@@ -153,30 +153,33 @@ function calulateProcess(operator) {
     initialNumber = calculrateResult;
 }
 
+function enteredInput(value, event) {
+    event.preventDefault();
+    resetBtn.textContent = 'C';
+
+    if (resultBtnClicked) {
+        reset();
+    }
+
+    if (resetCalcLog) {
+        writeCalcLog();
+        resetCalcLog = false;
+    }
+
+    if (enteredNumber === DEFAULT_ENTERED_NUMBER) {
+        enteredNumber = '';
+    } 
+    enteredNumber += value;
+    resultBtnClicked = false;
+    operatorBtnClicked = false;
+    writeEnteredNumber(enteredNumber);
+}
+
 writeEnteredNumber(DEFAULT_ENTERED_NUMBER);
 
 for (let number in numbers) {
     numbers[number].addEventListener('click', function(event) {
-        event.preventDefault();
-
-        resetBtn.textContent = 'C';
-
-        if (resultBtnClicked) {
-            reset();
-        }
-
-        if (resetCalcLog) {
-            writeCalcLog();
-            resetCalcLog = false;
-        }
-
-        if (enteredNumber === DEFAULT_ENTERED_NUMBER) {
-            enteredNumber = '';
-        } 
-        enteredNumber += number;
-        resultBtnClicked = false;
-        operatorBtnClicked = false;
-        writeEnteredNumber(enteredNumber);
+        enteredInput(number,event);
     });
 }
 
@@ -229,23 +232,5 @@ resetBtn.addEventListener('click', function(event) {
 });
 
 dotBtn.addEventListener('click', function() {
-    event.preventDefault();
-    resetBtn.textContent = 'C';
-
-    if (resultBtnClicked) {
-        reset();
-    }
-
-    if (resetCalcLog) {
-        writeCalcLog();
-        resetCalcLog = false;
-    }
-
-    if (enteredNumber === DEFAULT_ENTERED_NUMBER) {
-        enteredNumber = '';
-    } 
-    enteredNumber += '.';
-    resultBtnClicked = false;
-    operatorBtnClicked = false;
-    writeEnteredNumber(enteredNumber);
+   enteredInput('.', event);
 });

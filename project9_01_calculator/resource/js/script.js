@@ -29,7 +29,7 @@ let enteredNumber = DEFAULT_ENTERED_NUMBER;
 let initialNumber = DEFAULT_NUMBER;
 let calcLogEntries = [];
 let resetCalcLog = false;
-let resetBtnClicked = false;
+let resultBtnClicked = false;
 let operatorBtnClicked = false;
 let operatateType;
 
@@ -39,30 +39,6 @@ function writeEnteredNumber(value) {
 
 function writeCalcLog(value) {
     previousResultEl.textContent = value;
-}
-
-writeEnteredNumber(DEFAULT_ENTERED_NUMBER);
-
-for (let number in numbers) {
-    numbers[number].addEventListener('click', function(event) {
-        event.preventDefault();
-
-        if (resetBtnClicked) {
-            reset();
-        }
-
-        if (resetCalcLog) {
-            writeCalcLog();
-            resetCalcLog = false;
-        }
-
-        if (enteredNumber === DEFAULT_ENTERED_NUMBER) {
-            enteredNumber = '';
-        } 
-        enteredNumber += number;
-        operatorBtnClicked = false;
-        writeEnteredNumber(enteredNumber);
-    });
 }
 
 function displayCalcLog(beforeResult) {
@@ -107,32 +83,32 @@ function calculateValue(previousResult) {
 
     if (previousResult) {
         if (calcLogEntries[calcLogEntries.length - 2]['operator'] === '+') {
-            previousResult += parseInt(calcLogEntries[calcLogEntries.length - 1]['previousNumber']);
+            previousResult += parseFloat(calcLogEntries[calcLogEntries.length - 1]['previousNumber']);
         } else if (calcLogEntries[calcLogEntries.length - 2]['operator'] === '-') {
-            previousResult -= parseInt(calcLogEntries[calcLogEntries.length - 1]['previousNumber']);
+            previousResult -= parseFloat(calcLogEntries[calcLogEntries.length - 1]['previousNumber']);
         } else if (calcLogEntries[calcLogEntries.length - 2]['operator'] === '*') {
-            previousResult *= parseInt(calcLogEntries[calcLogEntries.length - 1]['previousNumber']);
+            previousResult *= parseFloat(calcLogEntries[calcLogEntries.length - 1]['previousNumber']);
         } else if (calcLogEntries[calcLogEntries.length - 2]['operator'] === '/') {
-            previousResult /= parseInt(calcLogEntries[calcLogEntries.length - 1]['previousNumber']);
+            previousResult /= parseFloat(calcLogEntries[calcLogEntries.length - 1]['previousNumber']);
         } else if (calcLogEntries[calcLogEntries.length - 2]['operator'] === '%') {
-            previousResult %= parseInt(calcLogEntries[calcLogEntries.length - 1]['previousNumber']);
+            previousResult %= parseFloat(calcLogEntries[calcLogEntries.length - 1]['previousNumber']);
         }
         return previousResult;
     }
 
     for (let log in calcLogEntries) { 
         if (operationType === '+') {
-            result += parseInt(calcLogEntries[log].previousNumber);
+            result += parseFloat(calcLogEntries[log].previousNumber);
         } else if (operationType === '-') {
-            result -= parseInt(calcLogEntries[log].previousNumber);
+            result -= parseFloat(calcLogEntries[log].previousNumber);
         } else if (operationType === '*') {
-            result *= parseInt(calcLogEntries[log].previousNumber);
+            result *= parseFloat(calcLogEntries[log].previousNumber);
         } else if (operationType === '/') {
-            result /= parseInt(calcLogEntries[log].previousNumber);
+            result /= parseFloat(calcLogEntries[log].previousNumber);
         } else if (operationType === '%') {
-            result %= parseInt(calcLogEntries[log].previousNumber);
+            result %= parseFloat(calcLogEntries[log].previousNumber);
         } else if (!operationType){
-            result += parseInt(calcLogEntries[log].previousNumber);
+            result += parseFloat(calcLogEntries[log].previousNumber);
         } 
 
         if (calcLogEntries[log].operator === '+') {
@@ -173,8 +149,35 @@ function calulateProcess(operator) {
     writeCalcLog(calcDescription);
     const calculrateResult = calculateValue();
     writeEnteredNumber(calculrateResult);
-    resetBtnClicked = false;
+    resultBtnClicked = false;
     initialNumber = calculrateResult;
+}
+
+writeEnteredNumber(DEFAULT_ENTERED_NUMBER);
+
+for (let number in numbers) {
+    numbers[number].addEventListener('click', function(event) {
+        event.preventDefault();
+
+        resetBtn.textContent = 'C';
+
+        if (resultBtnClicked) {
+            reset();
+        }
+
+        if (resetCalcLog) {
+            writeCalcLog();
+            resetCalcLog = false;
+        }
+
+        if (enteredNumber === DEFAULT_ENTERED_NUMBER) {
+            enteredNumber = '';
+        } 
+        enteredNumber += number;
+        resultBtnClicked = false;
+        operatorBtnClicked = false;
+        writeEnteredNumber(enteredNumber);
+    });
 }
 
 addBtn.addEventListener('click', function(event) {
@@ -201,7 +204,7 @@ resultBtn.addEventListener('click', function(event) {
     event.preventDefault();
     let calcDescription;
     let calculrateResult;
-    if (resetBtnClicked) {
+    if (resultBtnClicked) {
         calculrateResult = calculateValue(initialNumber);
         writeEnteredNumber(calculrateResult);
         calcDescription = displayCalcLog(initialNumber);
@@ -217,13 +220,32 @@ resultBtn.addEventListener('click', function(event) {
     }
 
     initialNumber = calculrateResult;
-    resetBtnClicked = true;
+    resultBtnClicked = true;
 });
 resetBtn.addEventListener('click', function(event) {
     event.preventDefault();
+    this.textContent = 'AC';
     reset();
 });
 
 dotBtn.addEventListener('click', function() {
     event.preventDefault();
+    resetBtn.textContent = 'C';
+
+    if (resultBtnClicked) {
+        reset();
+    }
+
+    if (resetCalcLog) {
+        writeCalcLog();
+        resetCalcLog = false;
+    }
+
+    if (enteredNumber === DEFAULT_ENTERED_NUMBER) {
+        enteredNumber = '';
+    } 
+    enteredNumber += '.';
+    resultBtnClicked = false;
+    operatorBtnClicked = false;
+    writeEnteredNumber(enteredNumber);
 });

@@ -11,16 +11,17 @@ body{
 :root{
     --primary_color:#23d8b5;
     --h2_font-size:42px;
-    --h3_font-size:24px;
+    --h3_font-size:22px;
     --h3_font-weight:400;
     --text-align:center;
     --margin-bottom:60px;
+    --section_padding-top:120px;
 }
 
 
 /* 컨테이너클래스 */
 .container {
-    max-width:1160px;
+    max-width:1200px;
     margin: 0 auto;
 }
 
@@ -41,6 +42,9 @@ table tr td:first-child{
 table tr td:last-child  {
     border-right: none;
 }
+
+/* 좌우 보더 라운딩 */
+
 
 /* -------------------- */
 /* 버튼설정 */
@@ -109,22 +113,30 @@ button:active {
 
 /***** NAV CONTAINER *****/
 
+
 .header--nav {
-    background: #fff;
-    padding:16px 0;
+    height: 80px;
+    display: flex;
+    align-items: center;
+
 }
+
+.header--nav .nav--logo img {
+    width: 160px;
+}   
 
 /***** HERO CONTAINER *****/
 
 .header--hero {
     background: #ff4760;
     padding:10px 0;
-    height:937px;  
+    height:100vh;
+
 }
 
 .hero h1{
     font-size:90px ;
-    padding: 20px 0 60px 0;
+    padding: 20px 0 60px 0;  
 }
 
 
@@ -133,6 +145,10 @@ button:active {
     display: inline-block;
     font-weight: 400;
     margin-top: 172px;
+}
+
+.hero--p--span{
+    font-weight: 700;
 }
 
 .hero--btn {
@@ -186,6 +202,8 @@ button:active {
 
 .fas{
     margin-bottom: 40px;
+    font-size: 70px;
+    color: var(--primary_color);
 }
 
 
@@ -203,7 +221,7 @@ button:active {
 
 
 .section_calculator, .section_description {
-    padding-top:120px;
+    padding-top: var(--section_padding-top);
     height: auto;
 }
 
@@ -241,10 +259,10 @@ button:active {
     background:#333;
     height: 158px;
     text-align: right;
+    border-radius: 5px 5px 0 0;
 }
 
 .js---previous_result{
-    /* background: #888; */
     height: 40%;
     font-size:24px;
     padding:40px 30px 0 0;
@@ -252,7 +270,6 @@ button:active {
 }
 
 .js---current_result {
-    /* background:#999; */
     padding-right: 30px;
     font-size:56px;
     height: 60%;
@@ -281,6 +298,13 @@ button:active {
     cursor: pointer;
     font-size:28px;
     font-weight:700;  
+}
+
+.js---number_0 {
+    border-radius: 0 0 0 5px;
+}
+.js---result {
+    border-radius: 0 0 5px 0;
 }
 
 

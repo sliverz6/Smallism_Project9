@@ -12,13 +12,34 @@
     border: 1px solid #333;
 }
 
-/* PLAYER-1 */
+/* PLAYER */
 #player-1,
 #player-2 {
     float: left;
     width: 20%;
     height: 100%;
 }
+
+
+.player-1__life{
+    height:70% ;
+    background: #999;
+}
+.player-1__roll_dice{
+    height:30%;
+    background: #888;
+}
+
+.player-2__life{
+    height:70% ;
+    background: #999;
+}
+.player-2__roll_dice{
+    height:30%;
+    background: #888;
+}
+
+/* PLAYER-board */
 
 #play_board {
     float: left;

@@ -1,0 +1,40 @@
+
+#main-board {
+    position: relative;
+    width: 780px;
+    height: 780px;
+    background: #999;
+}
+
+.board__cell {
+    position: absolute;
+    width: 16.66%;
+    height: 16.66%;
+    background: pink;
+}
+
+.board__cell:nth-child(odd) {
+    background: blueviolet;
+}
+
+
+.board__cell-01 { bottom: 0; left: 0; }
+.board__cell-02 { bottom: 0; left: 16.66%; }
+.board__cell-03 { bottom: 0; left: 33.32%; }
+.board__cell-04 { bottom: 0; left: 49.98%; }
+.board__cell-05 { bottom: 0; left: 66.64%; }
+.board__cell-06 { bottom: 0; left: 83.3%; }
+.board__cell-07 { right: 0; bottom: 16.66%; }
+.board__cell-08 { right: 0; bottom: 33.32%; }
+.board__cell-09 { right: 0; bottom: 49.98%; }
+.board__cell-10 { right: 0; bottom: 66.64%; }
+.board__cell-11 { right: 0; bottom: 83.3%; }
+.board__cell-12 { top: 0; right: 16.66%; }
+.board__cell-13 { top: 0; right: 33.32%; }
+.board__cell-14 { top: 0; right: 49.98%; }
+.board__cell-15 { top: 0; right: 66.64%; }
+.board__cell-16 { top: 0; right: 83.3%; }
+.board__cell-17 { left: 0; top: 16.66%; }
+.board__cell-18 { left: 0; top: 33.32%; }
+.board__cell-19 { left: 0; top: 49.98%; }
+.board__cell-20 { left: 0; top: 66.64%; }

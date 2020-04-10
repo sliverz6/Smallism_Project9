@@ -1,18 +1,20 @@
 
 /* 디폴트값 */
 .dice {
+    width: 100px;
+    height: 100px;
+    background: purple;
+    display: none;
+}
+.number {
     display: none;
 }
 
 /* 클래스추가시 */
-
-.dice.visible {
-    width: 100px;
-    height: 100px;
-    background: purple;
+.visible {
     display: block;
 }
 
-.btn.invisible {
+.invisible {
     display: none;
 }

@@ -1,0 +1,18 @@
+
+/* 디폴트값 */
+.dice {
+    display: none;
+}
+
+/* 클래스추가시 */
+
+.dice.visible {
+    width: 100px;
+    height: 100px;
+    background: purple;
+    display: block;
+}
+
+.btn.invisible {
+    display: none;
+}

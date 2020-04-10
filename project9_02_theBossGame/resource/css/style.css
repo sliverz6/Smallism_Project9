@@ -1,9 +1,13 @@
+h3 { font-size: 18px; }
+
+/* -------------------------- */
+
+/* MAIN BOARD */
 
 #main-board {
     position: relative;
     width: 780px;
     height: 780px;
-    background: #999;
 }
 
 .board__cell {
@@ -11,12 +15,9 @@
     width: 16.66%;
     height: 16.66%;
     background: pink;
+    text-align: center;
+    border: 1px solid #999;
 }
-
-.board__cell:nth-child(odd) {
-    background: blueviolet;
-}
-
 
 .board__cell-01 { bottom: 0; left: 0; }
 .board__cell-02 { bottom: 0; left: 16.66%; }
@@ -38,3 +39,31 @@
 .board__cell-18 { left: 0; top: 33.32%; }
 .board__cell-19 { left: 0; top: 49.98%; }
 .board__cell-20 { left: 0; top: 66.64%; }
+
+/* COUNTRY FOOD */
+
+.board__cell.korean_food {
+    background-color:royalblue;
+}
+
+
+/* BOARD CELL */
+
+.cell__info {
+    background: #fff;
+    height: 38px;
+    padding: 6px 0;
+}
+
+.cell__inside {
+    height: 70px;
+    margin: 10px;
+    padding: 20px 0;
+    background: #D8EFFF;
+    border-radius:4px;
+}
+
+.player-01, .player-02 {
+    display:inline-block ;
+}
+

@@ -1,4 +1,3 @@
-
 const ROCK = 'ROCK';
 const SCISSORS = 'SCISSORS';
 const PAPER = 'PAPER';
@@ -78,6 +77,16 @@ const dealDamage = (roundWinner) => {
         playerLife -= damage;
         playerLife < 0 ? playerLife = 0 : playerLife;
         playerLifeBarElement.style.width = `${computerLife}%`;
+    }
+}
+
+const checkGameIsOver = (pLife, cLife) => {
+    if (pLife <= 0 && cLife > 0) {
+        console.log(RESULT_COMPUTER_WIN);
+    } else if (cLife <= 0 && pLife > 0) {
+        console.log(RESULT_PLAYER_WIN);
+    } else {
+        console.log(RESULT_DRAW);
     }
 }
 

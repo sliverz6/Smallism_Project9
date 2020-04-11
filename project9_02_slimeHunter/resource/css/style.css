@@ -48,10 +48,10 @@
 }
 
 #battle-area {
+    background:url('/resource/img/background.jpg') no-repeat center center / cover;
     position: relative;
     width: 100%;
     height: 80%;
-    background:#333
 }
 
 
@@ -219,7 +219,7 @@
 /* BATTLE-AREA-SECTION */
 /************************************************/
 
-.battel-area__player {
+.battle-area__player {
     position: absolute;
     top: 35%;
     left: 20%;
@@ -227,7 +227,7 @@
     text-align: center;
 }
 
-.battel-area__com {
+.battle-area__com {
     position: absolute;
     top: 35%;
     right: 20%;
@@ -235,7 +235,7 @@
     text-align: center;
 }
 
-.battel-area__com img{
+.battle-area__com img{
     height: 160px;
 }
 

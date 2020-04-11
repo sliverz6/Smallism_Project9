@@ -44,9 +44,9 @@ const getWinner = (pChoice, cChoice) => {
 };
 
 const showGameResultInPanel = (roundWinner) => {
-    const WIN = '플레이어 WIN!';
-    const LOSE = '슬라임 WIN!';
-    const DRAW = '무승부!';
+    const WIN = 'WIN!';
+    const LOSE = 'LOSE!';
+    const DRAW = 'DRAW!';
 
     damageDisplayElement
    
@@ -101,12 +101,7 @@ const dealDamage = (roundWinner) => {
         playerLife -= damage;
         playerLife < 0 ? playerLife = 0 : playerLife;
         playerLifeBarElement.style.width = `${playerLife}%`;
-    } else if (roundWinner === RESULT_DRAW) {
-        damage = 'DRAW';
-        // damageDisplayElement.textContent = `${damage}`;
-        return
-    }
-    // damageDisplayElement.textContent = `-${damage}`;
+    } 
 }
 
 const checkGameIsOver = (pLife, cLife) => {

@@ -72,11 +72,11 @@ const dealDamage = (roundWinner) => {
     if (roundWinner === RESULT_PLAYER_WIN) {
         computerLife -= damage;
         computerLife < 0 ? computerLife = 0 : computerLife;
-        computerLifeBarElement.style.width = `${computerLife}%`;
+        computerLifeBarElement.style.width = `${playerLife}%`;
     } else if (roundWinner === RESULT_COMPUTER_WIN) {
         playerLife -= damage;
         playerLife < 0 ? playerLife = 0 : playerLife;
-        playerLifeBarElement.style.width = `${computerLife}%`;
+        playerLifeBarElement.style.width = `${playerLife}%`;
     }
 }
 
@@ -85,7 +85,7 @@ const checkGameIsOver = (pLife, cLife) => {
         console.log(RESULT_COMPUTER_WIN);
     } else if (cLife <= 0 && pLife > 0) {
         console.log(RESULT_PLAYER_WIN);
-    } else {
+    } else if (cLife <= 0 && pLife <= 0) {
         console.log(RESULT_DRAW);
     }
 }
@@ -97,6 +97,8 @@ rockButtonElement.addEventListener('click', () => {
     showChoiceInPanel(playerChoice, computerChoice);
     showGameResultInPanel(winner);
     dealDamage(winner);
+    checkGameIsOver(playerLife, computerLife);
+    console.log(playerLife, computerLife);
 });
 
 scissorsButtonElement.addEventListener('click', () => {
@@ -106,6 +108,8 @@ scissorsButtonElement.addEventListener('click', () => {
     showChoiceInPanel(playerChoice, computerChoice);
     showGameResultInPanel(winner);
     dealDamage(winner);
+    checkGameIsOver(playerLife, computerLife);
+    console.log(playerLife, computerLife);
 });
 
 paperButtonElement.addEventListener('click', () => {
@@ -115,4 +119,6 @@ paperButtonElement.addEventListener('click', () => {
     showChoiceInPanel(playerChoice, computerChoice);
     showGameResultInPanel(winner);
     dealDamage(winner);
+    checkGameIsOver(playerLife, computerLife);
+    console.log(playerLife, computerLife);
 });

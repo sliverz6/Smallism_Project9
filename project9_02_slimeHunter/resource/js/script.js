@@ -72,7 +72,7 @@ const dealDamage = (roundWinner) => {
     if (roundWinner === RESULT_PLAYER_WIN) {
         computerLife -= damage;
         computerLife < 0 ? computerLife = 0 : computerLife;
-        computerLifeBarElement.style.width = `${playerLife}%`;
+        computerLifeBarElement.style.width = `${computerLife}%`;
     } else if (roundWinner === RESULT_COMPUTER_WIN) {
         playerLife -= damage;
         playerLife < 0 ? playerLife = 0 : playerLife;

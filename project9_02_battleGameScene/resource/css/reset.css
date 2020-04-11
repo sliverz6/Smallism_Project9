@@ -1,0 +1,17 @@
+@charset 'utf-8';
+
+/* 여백 초기화 */
+body, div, p, h1, h2, h3, h4, h5, h6, ul, 
+li ,ol, dl, dt, dd, table, th, td, tr, input, textarea, select, option {
+    margin: 0;
+    padding: 0;
+}
+
+/* 박스 사이징 초기화 */
+* {box-sizing: border-box;}
+
+/* a링크 초기화 */
+a {text-decoration: none;}
+
+/* 불릿 기호 초기화 */
+li {list-style: none;}

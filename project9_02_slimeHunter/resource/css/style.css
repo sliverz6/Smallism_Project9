@@ -43,8 +43,8 @@
 
 #damage {
     width: 20%;
-    height: 100%;
-    background: #444;
+    border: 1px solid #333;
+    margin-top: 30px;
     float: left;
 }
 
@@ -103,13 +103,12 @@
 .player-state__life { 
     padding: 30px;
     overflow: auto;
-    /* border: 1px solid #333; */
     text-align: center;
 }
 
 .life__text { 
     width: 20%;
-    height: 40px;
+    height: 42px;
     float: left;
     padding:10px 0;
     margin-right: 2%;
@@ -134,7 +133,6 @@
 .player-state__info {
     padding: 0 30px;
     overflow: auto;
-    /* border: 1px solid #333; */
 }
 
 .info--player-name { 
@@ -165,7 +163,7 @@
 
 .damage__count {
     font-size: 52px;
-    padding: 20%;
+    padding: 23px;
     color: aqua;
 }
 
@@ -173,18 +171,16 @@
 /* -----COM-STATE-LIFE------ */
 
 .com-state__life { 
-    padding: 10px;
+    padding:30px;
     overflow: auto;
-    border: 1px solid #333;
     text-align: center;
 }
 
 .com-state__life .life__text { 
-    width: 20%;
     float: right;
+    height: 44px;
     margin-left: 2%;
     margin-right: 0;
-    border: 1px solid #333;
 }
 
 .com-state__life .life__bar { 
@@ -195,16 +191,15 @@
 
 .com-state__life .bar--energy { 
     width: 100%;
-    height: 40px;
+    height: 42px;
     float: right;
 }
 
 /* -----COM-STATE-INFO------ */
 
 .com-state__info {
-    padding: 10px;
+    padding: 0 30px;
     overflow: auto;
-    border: 1px solid #333;
 }
 
 .com-state__info .info--player-name { 

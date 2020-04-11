@@ -8,6 +8,17 @@ const RESULT_COMPUTER_WIN = 'COMPUTER_WIN';
 let playerLife = 100;
 let computerLife = 100;
 
+const getPlayerChoice = (button) => {
+    
+    if (button.id === "select__rock") {
+        return ROCK;
+    } else if (button.id === 'select__scissors') {
+        return SCISSORS;
+    } else if (button.id === 'select__paper') {
+        return PAPER;
+    }
+};
+
 const getComputerChoice = () => { 
     const randomNumber = Math.random();
     if (randomNumber < 0.34) {
@@ -90,35 +101,15 @@ const checkGameIsOver = (pLife, cLife) => {
     }
 }
 
-rockButtonElement.addEventListener('click', () => {
-    const playerChoice = ROCK;
-    const computerChoice = getComputerChoice();
-    const winner = getWinner(playerChoice, computerChoice);
-    showChoiceInPanel(playerChoice, computerChoice);
-    showGameResultInPanel(winner);
-    dealDamage(winner);
-    checkGameIsOver(playerLife, computerLife);
-    console.log(playerLife, computerLife);
-});
-
-scissorsButtonElement.addEventListener('click', () => {
-    const playerChoice = SCISSORS;
-    const computerChoice = getComputerChoice();
-    const winner = getWinner(playerChoice, computerChoice);
-    showChoiceInPanel(playerChoice, computerChoice);
-    showGameResultInPanel(winner);
-    dealDamage(winner);
-    checkGameIsOver(playerLife, computerLife);
-    console.log(playerLife, computerLife);
-});
-
-paperButtonElement.addEventListener('click', () => {
-    const playerChoice = PAPER;
-    const computerChoice = getComputerChoice();
-    const winner = getWinner(playerChoice, computerChoice);
-    showChoiceInPanel(playerChoice, computerChoice);
-    showGameResultInPanel(winner);
-    dealDamage(winner);
-    checkGameIsOver(playerLife, computerLife);
-    console.log(playerLife, computerLife);
-});
+for (let button of rspButtonsElement) {
+    button.addEventListener('click', () => {
+        const playerChoice = getPlayerChoice(button);
+        const computerChoice = getComputerChoice();
+        const winner = getWinner(playerChoice, computerChoice);
+        showChoiceInPanel(playerChoice, computerChoice);
+        showGameResultInPanel(winner);
+        dealDamage(winner);
+        checkGameIsOver(playerLife, computerLife);
+        console.log(playerLife, computerLife)
+    });
+}

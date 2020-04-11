@@ -1,8 +1,5 @@
 // 가위, 바위, 보 버튼
-const rspButtonsElement = document.getElementById('rsp-select');
-const rockButtonElement = rspButtonsElement.children[0];
-const scissorsButtonElement = rspButtonsElement.children[1];
-const paperButtonElement = rspButtonsElement.children[2];
+const rspButtonsElement = document.getElementById('rsp-select').querySelectorAll('button');
 
 // 상태 창
 const playerStateElement = document.getElementById('player-state');

@@ -6,6 +6,9 @@ const RESULT_DRAW = 'DRAW';
 const RESULT_PLAYER_WIN = 'PLAYER_WIN';
 const RESULT_COMPUTER_WIN = 'COMPUTER_WIN';
 
+let playerLife = 100;
+let computerLife = 100;
+
 const getComputerChoice = () => { 
     const randomNumber = Math.random();
     if (randomNumber < 0.34) {
@@ -65,12 +68,26 @@ const showChoiceInPanel = (pChoice, cChoice) => {
     : computerChoiceResultElement.firstChild.className = SCISSORS_ICON_CLASS_NAME
 }
 
+const dealDamage = (roundWinner) => {
+    const damage = parseInt(Math.random() * 10 + 10);
+    if (roundWinner === RESULT_PLAYER_WIN) {
+        computerLife -= damage;
+        computerLife < 0 ? computerLife = 0 : computerLife;
+        computerLifeBarElement.style.width = `${computerLife}%`;
+    } else if (roundWinner === RESULT_COMPUTER_WIN) {
+        playerLife -= damage;
+        playerLife < 0 ? playerLife = 0 : playerLife;
+        playerLifeBarElement.style.width = `${computerLife}%`;
+    }
+}
+
 rockButtonElement.addEventListener('click', () => {
     const playerChoice = ROCK;
     const computerChoice = getComputerChoice();
     const winner = getWinner(playerChoice, computerChoice);
     showChoiceInPanel(playerChoice, computerChoice);
     showGameResultInPanel(winner);
+    dealDamage(winner);
 });
 
 scissorsButtonElement.addEventListener('click', () => {
@@ -79,6 +96,7 @@ scissorsButtonElement.addEventListener('click', () => {
     const winner = getWinner(playerChoice, computerChoice);
     showChoiceInPanel(playerChoice, computerChoice);
     showGameResultInPanel(winner);
+    dealDamage(winner);
 });
 
 paperButtonElement.addEventListener('click', () => {
@@ -87,4 +105,5 @@ paperButtonElement.addEventListener('click', () => {
     const winner = getWinner(playerChoice, computerChoice);
     showChoiceInPanel(playerChoice, computerChoice);
     showGameResultInPanel(winner);
+    dealDamage(winner);
 });

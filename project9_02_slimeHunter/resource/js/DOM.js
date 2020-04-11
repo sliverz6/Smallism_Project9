@@ -15,3 +15,7 @@ const computerStateResultElement = computerStateElement.querySelector('.info--wi
 // 상태 창 - 가위, 바위, 보 선택 결과
 const playerChoiceResultElement = playerStateElement.querySelector('.info--selected-rsp');
 const computerChoiceResultElement = computerStateElement.querySelector('.info--selected-rsp');
+
+// 상태 창 - 에너지바
+const playerLifeBarElement = playerStateElement.querySelector('.bar--energy');
+const computerLifeBarElement = computerStateElement.querySelector('.bar--energy');

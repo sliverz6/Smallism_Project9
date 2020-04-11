@@ -71,7 +71,6 @@ rockButtonElement.addEventListener('click', () => {
     const winner = getWinner(playerChoice, computerChoice);
     showChoiceInPanel(playerChoice, computerChoice);
     showGameResultInPanel(winner);
-    console.log(winner);
 });
 
 scissorsButtonElement.addEventListener('click', () => {
@@ -80,7 +79,6 @@ scissorsButtonElement.addEventListener('click', () => {
     const winner = getWinner(playerChoice, computerChoice);
     showChoiceInPanel(playerChoice, computerChoice);
     showGameResultInPanel(winner);
-    console.log(winner);
 });
 
 paperButtonElement.addEventListener('click', () => {
@@ -89,5 +87,4 @@ paperButtonElement.addEventListener('click', () => {
     const winner = getWinner(playerChoice, computerChoice);
     showChoiceInPanel(playerChoice, computerChoice);
     showGameResultInPanel(winner);
-    console.log(winner);
 });

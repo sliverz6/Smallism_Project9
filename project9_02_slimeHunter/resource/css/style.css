@@ -41,7 +41,7 @@
     float: left;
 }
 
-#final-winner {
+#damage {
     width: 20%;
     height: 100%;
     background: #444;
@@ -163,13 +163,9 @@
 
 /* -----FINAL-WINNER----- */
 
-.final-winner__title {
-    font-size:20px;
-    padding: 10px 0 ;
-}
-.final-winner__winner-name {
-    font-size: 32px;
-    padding: 10px 0;
+.damage__count {
+    font-size: 52px;
+    padding: 20%;
     color: aqua;
 }
 

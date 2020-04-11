@@ -9,7 +9,6 @@ let playerLife = 100;
 let computerLife = 100;
 
 const getPlayerChoice = (button) => {
-    
     if (button.id === "select__rock") {
         return ROCK;
     } else if (button.id === 'select__scissors') {
@@ -45,19 +44,33 @@ const getWinner = (pChoice, cChoice) => {
 };
 
 const showGameResultInPanel = (roundWinner) => {
-    const WIN = 'WIN';
-    const LOSE = 'LOSE';
-    const DRAW = 'DRAW';
+    const WIN = '플레이어 WIN!';
+    const LOSE = '슬라임 WIN!';
+    const DRAW = '무승부!';
+
+    damageDisplayElement
+   
     if (roundWinner === RESULT_PLAYER_WIN) {
-        playerStateResultElement.textContent = WIN;
-        computerStateResultElement.textContent = LOSE;
+        damageDisplayElement.textContent = WIN;
     } else if (roundWinner === RESULT_COMPUTER_WIN) {
-        playerStateResultElement.textContent = LOSE;
-        computerStateResultElement.textContent = WIN;
+        damageDisplayElement.textContent = LOSE;
     } else {
-        playerStateResultElement.textContent = DRAW;
-        computerStateResultElement.textContent = DRAW;
+        damageDisplayElement.textContent = DRAW;
     }
+
+    // const WIN = 'WIN';
+    // const LOSE = 'LOSE';
+    // const DRAW = 'DRAW';
+    // if (roundWinner === RESULT_PLAYER_WIN) {
+    //     playerStateResultElement.textContent = WIN;
+    //     computerStateResultElement.textContent = LOSE;
+    // } else if (roundWinner === RESULT_COMPUTER_WIN) {
+    //     playerStateResultElement.textContent = LOSE;
+    //     computerStateResultElement.textContent = WIN;
+    // } else {
+    //     playerStateResultElement.textContent = DRAW;
+    //     computerStateResultElement.textContent = DRAW;
+    // }
 };
 
 const showChoiceInPanel = (pChoice, cChoice) => {
@@ -79,7 +92,7 @@ const showChoiceInPanel = (pChoice, cChoice) => {
 }
 
 const dealDamage = (roundWinner) => {
-    const damage = parseInt(Math.random() * 10 + 10);
+    let damage = parseInt(Math.random() * 10 + 10);
     if (roundWinner === RESULT_PLAYER_WIN) {
         computerLife -= damage;
         computerLife < 0 ? computerLife = 0 : computerLife;
@@ -88,7 +101,12 @@ const dealDamage = (roundWinner) => {
         playerLife -= damage;
         playerLife < 0 ? playerLife = 0 : playerLife;
         playerLifeBarElement.style.width = `${playerLife}%`;
+    } else if (roundWinner === RESULT_DRAW) {
+        damage = 'DRAW';
+        // damageDisplayElement.textContent = `${damage}`;
+        return
     }
+    // damageDisplayElement.textContent = `-${damage}`;
 }
 
 const checkGameIsOver = (pLife, cLife) => {

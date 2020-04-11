@@ -47,10 +47,29 @@ const showGameResultInPanel = (roundWinner) => {
     }
 };
 
+const showChoiceInPanel = (pChoice, cChoice) => {
+    const ROCK_ICON_CLASS_NAME = 'fas fa-hand-rock';
+    const PAPER_ICON_CLASS_NAME = 'fas fa-hand-paper';
+    const SCISSORS_ICON_CLASS_NAME = 'fas fa-hand-peace';
+
+    pChoice === ROCK 
+    ? playerChoiceResultElement.firstChild.className = ROCK_ICON_CLASS_NAME 
+    : pChoice === PAPER 
+    ? playerChoiceResultElement.firstChild.className = PAPER_ICON_CLASS_NAME 
+    : playerChoiceResultElement.firstChild.className = SCISSORS_ICON_CLASS_NAME
+
+    cChoice === ROCK
+    ? computerChoiceResultElement.firstChild.className = ROCK_ICON_CLASS_NAME
+    : cChoice === PAPER
+    ? computerChoiceResultElement.firstChild.className = PAPER_ICON_CLASS_NAME
+    : computerChoiceResultElement.firstChild.className = SCISSORS_ICON_CLASS_NAME
+}
+
 rockButtonElement.addEventListener('click', () => {
     const playerChoice = ROCK;
     const computerChoice = getComputerChoice();
     const winner = getWinner(playerChoice, computerChoice);
+    showChoiceInPanel(playerChoice, computerChoice);
     showGameResultInPanel(winner);
     console.log(winner);
 });
@@ -59,6 +78,7 @@ scissorsButtonElement.addEventListener('click', () => {
     const playerChoice = SCISSORS;
     const computerChoice = getComputerChoice();
     const winner = getWinner(playerChoice, computerChoice);
+    showChoiceInPanel(playerChoice, computerChoice);
     showGameResultInPanel(winner);
     console.log(winner);
 });
@@ -67,6 +87,7 @@ paperButtonElement.addEventListener('click', () => {
     const playerChoice = PAPER;
     const computerChoice = getComputerChoice();
     const winner = getWinner(playerChoice, computerChoice);
+    showChoiceInPanel(playerChoice, computerChoice);
     showGameResultInPanel(winner);
     console.log(winner);
 });

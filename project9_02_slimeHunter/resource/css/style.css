@@ -15,40 +15,43 @@
 /***** 레이아웃 *****/
 #main {
     height: 100vh;
-    background: #999;
     position: relative;
 }
 
 #rsp-select {
+    min-width:500px;
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
-    bottom: 0;
+    bottom: 10%;
     text-align: center;
+    z-index: 1;
 }
 
 #header {
     text-align: center;
-    height: 30%;
+    height: 20%;
 }
 
 #player-state, #com-state {
     width: 40%;
+    height: 100%;
     background: #555;
     float: left;
 }
 
 #final-winner {
     width: 20%;
+    height: 100%;
     background: #444;
     float: left;
 }
 
 #battle-area {
+    position: relative;
     width: 100%;
-    height: 70%;
-    background: #666;
-    overflow: auto;
+    height: 80%;
+    background:#333
 }
 
 
@@ -69,7 +72,6 @@
     padding:30px;
     display: inline-block;
     background-color: aqua;
-    margin: 0 10px;
 }
 
 .rsp-select-btn i{
@@ -118,7 +120,7 @@
     border: 1px solid #333;
 }
 
-/* -----PLATER-STATE-INFO------ */
+/* -----PLAYER-STATE-INFO------ */
 
 .player-state__info {
     padding: 10px;
@@ -218,14 +220,18 @@
 /************************************************/
 
 .battel-area__player {
-    width: 50%;
-    float: left;
+    position: absolute;
+    top: 35%;
+    left: 20%;
+    transform: translate(-50%,-50%);
     text-align: center;
 }
 
 .battel-area__com {
-    width: 50%;
-    float: left;
+    position: absolute;
+    top: 35%;
+    right: 20%;
+    transform: translate(50%,-50%);
     text-align: center;
 }
 

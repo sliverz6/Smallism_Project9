@@ -106,18 +106,23 @@
     text-align: center;
 }
 
-.life--text { 
+.life__text { 
     width: 20%;
     float: left;
     margin-right: 2%;
     border: 1px solid #333;
 }
 
-.life--bar { 
+.life__bar { 
     width: 78%;
     float: left;
-    padding: 10px;
     border: 1px solid #333;
+}
+
+.bar--energy {
+    width: 100%;
+    padding: 10px;
+    background: red;
 }
 
 /* -----PLAYER-STATE-INFO------ */
@@ -170,7 +175,7 @@
     text-align: center;
 }
 
-.com-state__life .life--text { 
+.com-state__life .life__text { 
     width: 20%;
     float: right;
     margin-left: 2%;
@@ -178,11 +183,16 @@
     border: 1px solid #333;
 }
 
-.com-state__life .life--bar { 
+.com-state__life .life__bar { 
     width: 78%;
     float: right;
-    padding: 10px;
     border: 1px solid #333;
+}
+
+.com-state__life .bar--energy { 
+    width: 100%;
+    float: right;
+    padding: 10px;
 }
 
 /* -----COM-STATE-INFO------ */

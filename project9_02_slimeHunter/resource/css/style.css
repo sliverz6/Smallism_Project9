@@ -3,8 +3,233 @@
 /* BASIC SETTING */
 /************************************************/
 
+.clearfix::after {
+    content: '';
+    display: block;
+    clear: both;
+}
+
 /***** 폰트 *****/
+
+
+/***** 레이아웃 *****/
+#main {
+    height: 100vh;
+    background: #999;
+    position: relative;
+}
+
+#rsp-select {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 0;
+    text-align: center;
+}
+
+#header {
+    text-align: center;
+    height: 30%;
+}
+
+#player-state, #com-state {
+    width: 40%;
+    background: #555;
+    float: left;
+}
+
+#final-winner {
+    width: 20%;
+    background: #444;
+    float: left;
+}
+
+#battle-area {
+    width: 100%;
+    height: 70%;
+    background: #666;
+    overflow: auto;
+}
+
 
 /************************************************/
 /* COMPONENTS */
 /************************************************/
+
+
+
+/************************************************/
+/* RSP-SELECT-SECTION */
+/************************************************/
+
+/*------ rsp-select ------ */
+
+
+.rsp-select-btn{
+    padding:30px;
+    display: inline-block;
+    background-color: aqua;
+    margin: 0 10px;
+}
+
+.rsp-select-btn i{
+    font-size: 80px;
+}
+
+/*------ rsp-select ------ */
+
+
+.rsp-select-btn{
+    padding:30px;
+    display: inline-block;
+    background-color: aqua;
+    margin: 0 10px;
+}
+
+.rsp-select-btn i{
+    font-size: 80px;
+}
+
+
+/************************************************/
+/* HEADER */
+/************************************************/
+
+/* -----PLATER-STATE-LIFE------ */
+
+.player-state__life { 
+    padding: 10px;
+    overflow: auto;
+    border: 1px solid #333;
+    text-align: center;
+}
+
+.life--text { 
+    width: 20%;
+    float: left;
+    margin-right: 2%;
+    border: 1px solid #333;
+}
+
+.life--bar { 
+    width: 78%;
+    float: left;
+    padding: 10px;
+    border: 1px solid #333;
+}
+
+/* -----PLATER-STATE-INFO------ */
+
+.player-state__info {
+    padding: 10px;
+    overflow: auto;
+    border: 1px solid #333;
+}
+
+.info--player-name { 
+    width: 36%;
+    float: left;
+    margin-right: 2%;
+    border: 1px solid #333;
+}
+
+.info--win-or-not { 
+    width: 30%;
+    float: left;
+    margin-right: 2%;
+    border: 1px solid #333;
+}
+
+.info--selected-rsp { 
+    width: 30%;
+    float: left;
+    border: 1px solid #333;
+}
+
+/* -----FINAL-WINNER----- */
+
+.final-winner__title {
+    font-size:20px;
+    padding: 10px 0 ;
+}
+.final-winner__winner-name {
+    font-size: 32px;
+    padding: 10px 0;
+    color: aqua;
+}
+
+
+/* -----COM-STATE-LIFE------ */
+
+.com-state__life { 
+    padding: 10px;
+    overflow: auto;
+    border: 1px solid #333;
+    text-align: center;
+}
+
+.com-state__life .life--text { 
+    width: 20%;
+    float: right;
+    margin-left: 2%;
+    margin-right: 0;
+    border: 1px solid #333;
+}
+
+.com-state__life .life--bar { 
+    width: 78%;
+    float: right;
+    padding: 10px;
+    border: 1px solid #333;
+}
+
+/* -----COM-STATE-INFO------ */
+
+.com-state__info {
+    padding: 10px;
+    overflow: auto;
+    border: 1px solid #333;
+}
+
+.com-state__info .info--player-name { 
+    width: 36%;
+    float: right;
+    margin-left: 2%;
+    margin-right: 0;
+    border: 1px solid #333;
+}
+
+.com-state__info .info--win-or-not { 
+    width: 30%;
+    float: right;
+    margin-left: 2%;
+    margin-right: 0;
+    border: 1px solid #333;
+}
+
+.com-state__info .info--selected-rsp { 
+    width: 30%;
+    float: rgiht;
+    border: 1px solid #333;
+}
+
+/************************************************/
+/* BATTLE-AREA-SECTION */
+/************************************************/
+
+.battel-area__player {
+    width: 50%;
+    float: left;
+    text-align: center;
+}
+
+.battel-area__com {
+    width: 50%;
+    float: left;
+    text-align: center;
+}
+
+.battel-area__com img{
+    height: 160px;
+}
+

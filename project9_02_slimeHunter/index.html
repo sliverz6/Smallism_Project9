@@ -16,6 +16,7 @@
     <!-- CSS -->
     <link rel="stylesheet" href="resource/css/reset.css">
     <link rel="stylesheet" href="resource/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css" />
 
     <!-- FONTS -->
 
@@ -23,6 +24,50 @@
     <script src="resource/js/script.js"></script>
 </head>
 <body>
-    
+    <div id="main">
+        <section id="rsp-select">
+            <button class="select__rock rsp-select-btn">
+                <i class="fas fa-hand-rock"></i>
+            </button>
+            <button class="select__Scissors rsp-select-btn">
+                <i class="fas fa-hand-peace"></i>
+            </button>
+            <button class="select__paper rsp-select-btn">
+                <i class="fas fa-hand-paper"></i>
+            </button>
+        </section>
+        <header id="header">
+            <div id="player-state">
+                <div class="player-state__life">
+                    <div class="life--text">HP</div>
+                    <div class="life--bar"></div>
+                </div>
+                <div class="player-state__info">
+                    <div class="info--player-name">이명준</div>
+                    <h4 class="info--win-or-not">WIN</h4>
+                    <div class="info--selected-rsp"><i class="fas fa-hand-rock"></i></div>
+                </div>
+            </div>
+            <hgroup id="final-winner">
+                <h2 class="final-winner__title">최종승리자</h2>
+                <h3 class="final-winner__winner-name">이명준</h3>
+            </hgroup>
+            <div id="com-state">
+                <div class="com-state__life">
+                    <div class="life--text">HP</div>
+                    <div class="life--bar"></div>
+                </div>
+                <div class="com-state__info">
+                    <div class="info--player-name">COM</div>
+                    <h4 class="info--win-or-not">LOSE</h4>
+                    <div class="info--selected-rsp"><i class="fas fa-hand-paper"></i></div>
+                </div>
+            </div>
+        </header>
+        <section id="battle-area">
+            <div class="battel-area__player"><img src="resource/img/player-character.gif" alt=""></div>
+            <div class="battel-area__com"><img src="resource/img/slime.gif" alt=""></div>
+        </section>
+    </div>
 </body>
 </html>

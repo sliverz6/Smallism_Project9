@@ -54,20 +54,6 @@ const showGameResultInPanel = (roundWinner) => {
     } else {
         damageDisplayElement.textContent = DRAW;
     }
-
-    // const WIN = 'WIN';
-    // const LOSE = 'LOSE';
-    // const DRAW = 'DRAW';
-    // if (roundWinner === RESULT_PLAYER_WIN) {
-    //     playerStateResultElement.textContent = WIN;
-    //     computerStateResultElement.textContent = LOSE;
-    // } else if (roundWinner === RESULT_COMPUTER_WIN) {
-    //     playerStateResultElement.textContent = LOSE;
-    //     computerStateResultElement.textContent = WIN;
-    // } else {
-    //     playerStateResultElement.textContent = DRAW;
-    //     computerStateResultElement.textContent = DRAW;
-    // }
 };
 
 const showChoiceInPanel = (pChoice, cChoice) => {

@@ -9,6 +9,43 @@
     clear: both;
 }
 
+#win-denote{
+    background-color: aqua;
+    color: #111;
+}
+
+/* 애니메이션 */
+@keyframes header_ani{
+    from {
+        top: 0;
+    }
+    to {
+        top: 40px;
+    }
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes rsp-select_ani{
+    from {
+        bottom: 0;
+    }
+    to {
+        bottom: 80px;
+    }
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+
 /***** 폰트 *****/
 
 
@@ -17,6 +54,7 @@
     height: 100vh;
     position: relative;
     background:url('../img/background.jpg') no-repeat center center / cover;
+    color: aqua;
 }
 
 #rsp-select {
@@ -27,11 +65,15 @@
     bottom: 10%;
     text-align: center;
     z-index: 1;
+    animation: rsp-select_ani 1s forwards 1 alternate ease-out ;  
 }
 
 #header {
+    position: relative;
     text-align: center;
+    /* top: 0; */
     height: 20%;
+    animation: header_ani 1s forwards 1 alternate ease-out ;    
 }
 
 #player-state, #com-state {
@@ -42,10 +84,12 @@
 }
 
 #damage {
-    width: 20%;
-    border: 1px solid #333;
-    margin-top: 30px;
     float: left;
+    width: 20%;
+    /* margin-top: 28px; */
+    border: 4px solid aqua;
+    border-radius:5px;
+    background: #111;
 }
 
 #battle-area {
@@ -68,29 +112,26 @@
 /*------ rsp-select ------ */
 
 
-.rsp-select-btn{
-    padding:30px;
-    display: inline-block;
-    background-color: aqua;
+
+.rsp-select-btn i:hover {
+    background: linear-gradient( to bottom, rgb(113, 255, 255), rgb(174, 255, 228) );
 }
 
-.rsp-select-btn i{
+.rsp-select-btn i:active {
+    transform: translateY(5px);
+    box-shadow: none;
+    background:rgb(10, 212, 212);
+}
+
+.rsp-select-btn i {
     font-size: 80px;
-}
-
-/*------ rsp-select ------ */
-
-
-.rsp-select-btn{
-    padding:30px;
     display: inline-block;
-    background-color: aqua;
-    margin: 0 10px;
+    padding:30px;
+    background: linear-gradient( to bottom, aqua, aquamarine );
+    box-shadow: 0px 6px 0px rgb(0, 161, 161);
+    margin: 0 5px;
     border-radius: 100%;
-}
-
-.rsp-select-btn i{
-    font-size: 80px;
+    cursor: pointer;
 }
 
 
@@ -101,7 +142,7 @@
 /* -----PLATER-STATE-LIFE------ */
 
 .player-state__life { 
-    padding: 30px;
+    padding:  0 30px 30px 30px;
     overflow: auto;
     text-align: center;
 }
@@ -112,13 +153,14 @@
     float: left;
     padding:10px 0;
     margin-right: 2%;
-    border: 1px solid #333;
+    background: #111;
 }
 
 .life__bar { 
     width: 78%;
     float: left;
     border: 1px solid #333;
+    background: rgb(73, 5, 5);
 }
 
 .bar--energy {
@@ -136,42 +178,37 @@
 }
 
 .info--player-name { 
-    width: 36%;
+    width: 48%;
     float: left;
     margin-right: 2%;
     padding: 10px 0;
-    border: 1px solid #333;
+    background: #111;
 }
 
-.info--win-or-not { 
-    width: 30%;
-    float: left;
-    margin-right: 2%;
-    padding: 10px 0;
-    border: 1px solid #333;
-}
 
 .info--selected-rsp { 
-    width: 30%;
+    width: 50%;
     float: left;
-    padding: 1px;
-    border: 1px solid #333;
+    padding: 2px;
+    background: #111;
     font-size: 28px;
 }
 
-/* -----FINAL-WINNER----- */
+/* -----DAMAGE__COUNT----- */
 
 .damage__count {
-    font-size: 52px;
-    padding: 23px;
+    font-size: 32px;
+    padding-top: 30px;
+    height: 110px;
     color: aqua;
+    
 }
 
 
 /* -----COM-STATE-LIFE------ */
 
 .com-state__life { 
-    padding:30px;
+    padding:  0 30px 30px 30px;
     overflow: auto;
     text-align: center;
 }
@@ -203,23 +240,16 @@
 }
 
 .com-state__info .info--player-name { 
-    width: 36%;
+    width: 48%;
     float: right;
     margin-left: 2%;
     margin-right: 0;
     border: 1px solid #333;
 }
 
-.com-state__info .info--win-or-not { 
-    width: 30%;
-    float: right;
-    margin-left: 2%;
-    margin-right: 0;
-    border: 1px solid #333;
-}
 
 .com-state__info .info--selected-rsp { 
-    width: 30%;
+    width: 50%;
     float: rgiht;
     border: 1px solid #333;
 }

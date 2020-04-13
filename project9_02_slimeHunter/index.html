@@ -16,6 +16,7 @@
     <!-- CSS -->
     <link rel="stylesheet" href="resource/css/reset.css">
     <link rel="stylesheet" href="resource/css/style.css">
+    <link rel="stylesheet" href="resource/css/mobile.css" media="(max-width:580px)">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css" />
 
     <!-- FONTS -->
@@ -27,13 +28,13 @@
 <body>
     <div id="main">
         <section id="rsp-select">
-            <button class="select__rock rsp-select-btn" id="select__rock">
+            <button class="rsp-select-btn" id="select__rock">
                 <i class="fas fa-hand-rock"></i>
             </button>
-            <button class="select__Scissors rsp-select-btn" id="select__scissors">
+            <button class="rsp-select-btn" id="select__scissors">
                 <i class="fas fa-hand-peace"></i>
             </button>
-            <button class="select__paper rsp-select-btn" id="select__paper">
+            <button class="rsp-select-btn" id="select__paper">
                 <i class="fas fa-hand-paper"></i>
             </button>
         </section>
@@ -47,8 +48,7 @@
                 </div>
                 <div class="player-state__info">
                     <div class="info--player-name">이명준</div>
-                    <h4 class="info--win-or-not">WIN</h4>
-                    <div class="info--selected-rsp"><i class="fas fa-hand-rock"></i></div>
+                    <div class="info--selected-rsp" id="win-denote"><i class="fas fa-hand-rock"></i></div>
                 </div>
             </div>
             <div id="damage">
@@ -63,7 +63,6 @@
                 </div>
                 <div class="com-state__info">
                     <div class="info--player-name">COM</div>
-                    <h4 class="info--win-or-not">LOSE</h4>
                     <div class="info--selected-rsp"><i class="fas fa-hand-paper"></i></div>
                 </div>
             </div>

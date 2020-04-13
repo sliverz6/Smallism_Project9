@@ -47,9 +47,6 @@ const showGameResultInPanel = (roundWinner) => {
     const WIN = 'WIN!';
     const LOSE = 'LOSE!';
     const DRAW = 'DRAW!';
-
-    damageDisplayElement
-   
     if (roundWinner === RESULT_PLAYER_WIN) {
         damageDisplayElement.textContent = WIN;
     } else if (roundWinner === RESULT_COMPUTER_WIN) {

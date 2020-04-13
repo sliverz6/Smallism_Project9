@@ -104,7 +104,7 @@ const dealDamage = (roundWinner) => {
             playerLifeBarElement.style.width = `${playerLife}%`;
         } 
         
-    }, INTERVAL_TIME + 1000);
+    }, INTERVAL_TIME + 500);
 }
 
 const checkGameIsOver = (pLife, cLife) => {
@@ -131,7 +131,7 @@ const endRound = () => {
         for (let button of rspButtonsElement) {
             button.classList.remove('invisible');
         }
-    }, INTERVAL_TIME + 2500);
+    }, INTERVAL_TIME + 1500);
 };
 
 for (let button of rspButtonsElement) {

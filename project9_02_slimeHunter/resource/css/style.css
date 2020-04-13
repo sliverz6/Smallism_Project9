@@ -166,7 +166,7 @@
 .bar--energy {
     transition: width 0.3s;
     width: 100%;
-    height: 40px;
+    height: 42px;
     background: red;
 }
 
@@ -188,8 +188,8 @@
 
 .info--selected-rsp { 
     width: 50%;
+    height: 41px;
     float: left;
-    padding: 2px;
     background: #111;
     font-size: 28px;
 }
@@ -215,7 +215,7 @@
 
 .com-state__life .life__text { 
     float: right;
-    height: 44px;
+    height: 42px;
     margin-left: 2%;
     margin-right: 0;
 }
@@ -244,7 +244,6 @@
     float: right;
     margin-left: 2%;
     margin-right: 0;
-    border: 1px solid #333;
 }
 
 

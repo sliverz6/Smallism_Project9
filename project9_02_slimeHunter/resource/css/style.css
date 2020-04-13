@@ -134,6 +134,10 @@
     cursor: pointer;
 }
 
+.rsp-select-btn.invisible {
+    display: none;
+}
+
 
 /************************************************/
 /* HEADER */

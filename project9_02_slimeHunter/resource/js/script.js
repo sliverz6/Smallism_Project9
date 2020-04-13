@@ -5,10 +5,23 @@ const RESULT_DRAW = 'DRAW';
 const RESULT_PLAYER_WIN = 'PLAYER_WIN';
 const RESULT_COMPUTER_WIN = 'COMPUTER_WIN';
 
+const INTERVAL_TIME = 500;
+
 let playerLife = 100;
 let computerLife = 100;
 
+let gameIsRunning = true;
+let roundIsRunning = false;
+
+const closeButtonPanel = (button) => {
+    for (let button of rspButtonsElement) {
+        button.classList.add('invisible');
+    }
+    button.classList.remove('invisible');
+};
+
 const getPlayerChoice = (button) => {
+    roundIsRunning = true;
     if (button.id === "select__rock") {
         return ROCK;
     } else if (button.id === 'select__scissors') {
@@ -44,30 +57,20 @@ const getWinner = (pChoice, cChoice) => {
 };
 
 const showGameResultInPanel = (roundWinner) => {
-    const WIN = 'WIN!';
-    const LOSE = 'LOSE!';
-    const DRAW = 'DRAW!';
-    if (roundWinner === RESULT_PLAYER_WIN) {
-        damageDisplayElement.textContent = WIN;
-    } else if (roundWinner === RESULT_COMPUTER_WIN) {
-        damageDisplayElement.textContent = LOSE;
-    } else {
-        damageDisplayElement.textContent = DRAW;
-    }
-
-    // const WIN = 'WIN';
-    // const LOSE = 'LOSE';
-    // const DRAW = 'DRAW';
-    // if (roundWinner === RESULT_PLAYER_WIN) {
-    //     playerStateResultElement.textContent = WIN;
-    //     computerStateResultElement.textContent = LOSE;
-    // } else if (roundWinner === RESULT_COMPUTER_WIN) {
-    //     playerStateResultElement.textContent = LOSE;
-    //     computerStateResultElement.textContent = WIN;
-    // } else {
-    //     playerStateResultElement.textContent = DRAW;
-    //     computerStateResultElement.textContent = DRAW;
-    // }
+    setTimeout(() => {
+        const WIN = 'WIN!';
+        const LOSE = 'LOSE!';
+        const DRAW = 'DRAW!';
+        if (roundWinner === RESULT_PLAYER_WIN) {
+            damageDisplayElement.textContent = WIN;
+            playerChoiceResultElement.id = 'win-denote';
+        } else if (roundWinner === RESULT_COMPUTER_WIN) {
+            damageDisplayElement.textContent = LOSE;
+            computerChoiceResultElement.id = 'win-denote';
+        } else {
+            damageDisplayElement.textContent = DRAW;
+        }
+    }, INTERVAL_TIME);
 };
 
 const showChoiceInPanel = (pChoice, cChoice) => {
@@ -89,37 +92,61 @@ const showChoiceInPanel = (pChoice, cChoice) => {
 }
 
 const dealDamage = (roundWinner) => {
-    let damage = parseInt(Math.random() * 10 + 10);
-    if (roundWinner === RESULT_PLAYER_WIN) {
-        computerLife -= damage;
-        computerLife < 0 ? computerLife = 0 : computerLife;
-        computerLifeBarElement.style.width = `${computerLife}%`;
-    } else if (roundWinner === RESULT_COMPUTER_WIN) {
-        playerLife -= damage;
-        playerLife < 0 ? playerLife = 0 : playerLife;
-        playerLifeBarElement.style.width = `${playerLife}%`;
-    } 
+    setTimeout(() => {
+        let damage = parseInt(Math.random() * 10 + 10);
+        if (roundWinner === RESULT_PLAYER_WIN) {
+            computerLife -= damage;
+            computerLife < 0 ? computerLife = 0 : computerLife;
+            computerLifeBarElement.style.width = `${computerLife}%`;
+        } else if (roundWinner === RESULT_COMPUTER_WIN) {
+            playerLife -= damage;
+            playerLife < 0 ? playerLife = 0 : playerLife;
+            playerLifeBarElement.style.width = `${playerLife}%`;
+        } 
+        
+    }, INTERVAL_TIME + 1000);
 }
 
 const checkGameIsOver = (pLife, cLife) => {
     if (pLife <= 0 && cLife > 0) {
         console.log(RESULT_COMPUTER_WIN);
+        gameIsRunning = false;
     } else if (cLife <= 0 && pLife > 0) {
         console.log(RESULT_PLAYER_WIN);
+        gameIsRunning = false;
     } else if (cLife <= 0 && pLife <= 0) {
         console.log(RESULT_DRAW);
+        gameIsRunning = false;
     }
 }
 
+const endRound = () => {
+    setTimeout(() => {
+        damageDisplayElement.textContent = '';
+        playerChoiceResultElement.firstChild.className = '';
+        computerChoiceResultElement.firstChild.className = '';
+        playerChoiceResultElement.id = '';
+        computerChoiceResultElement.id = '';
+        roundIsRunning = false;
+        for (let button of rspButtonsElement) {
+            button.classList.remove('invisible');
+        }
+    }, INTERVAL_TIME + 2500);
+};
+
 for (let button of rspButtonsElement) {
     button.addEventListener('click', () => {
-        const playerChoice = getPlayerChoice(button);
-        const computerChoice = getComputerChoice();
-        const winner = getWinner(playerChoice, computerChoice);
-        showChoiceInPanel(playerChoice, computerChoice);
-        showGameResultInPanel(winner);
-        dealDamage(winner);
-        checkGameIsOver(playerLife, computerLife);
-        console.log(playerLife, computerLife)
+        if (gameIsRunning && !roundIsRunning) {
+            const playerChoice = getPlayerChoice(button);
+            const computerChoice = getComputerChoice();
+            const winner = getWinner(playerChoice, computerChoice);
+            closeButtonPanel(button);
+            showChoiceInPanel(playerChoice, computerChoice);
+            showGameResultInPanel(winner);
+            dealDamage(winner);
+            checkGameIsOver(playerLife, computerLife);
+            endRound();
+            console.log(playerLife, computerLife)
+        }
     });
 }

@@ -92,32 +92,46 @@ const showChoiceInPanel = (pChoice, cChoice) => {
 }
 
 const dealDamage = (roundWinner) => {
-    setTimeout(() => {
-        let damage = parseInt(Math.random() * 10 + 10);
+    console.log(roundWinner);
+        let damage = parseInt(Math.random() * 10 + 20);
         if (roundWinner === RESULT_PLAYER_WIN) {
             computerLife -= damage;
             computerLife < 0 ? computerLife = 0 : computerLife;
-            computerLifeBarElement.style.width = `${computerLife}%`;
+            setTimeout(() => {
+                computerLifeBarElement.style.width = `${computerLife}%`;
+            }, INTERVAL_TIME + 500);
+            
         } else if (roundWinner === RESULT_COMPUTER_WIN) {
             playerLife -= damage;
             playerLife < 0 ? playerLife = 0 : playerLife;
-            playerLifeBarElement.style.width = `${playerLife}%`;
+            setTimeout(() => {
+                playerLifeBarElement.style.width = `${playerLife}%`;
+            }, INTERVAL_TIME + 500);
         } 
-        
-    }, INTERVAL_TIME + 500);
 }
 
 const checkGameIsOver = (pLife, cLife) => {
-    if (pLife <= 0 && cLife > 0) {
-        console.log(RESULT_COMPUTER_WIN);
-        gameIsRunning = false;
-    } else if (cLife <= 0 && pLife > 0) {
-        console.log(RESULT_PLAYER_WIN);
-        gameIsRunning = false;
-    } else if (cLife <= 0 && pLife <= 0) {
-        console.log(RESULT_DRAW);
-        gameIsRunning = false;
-    }
+    setTimeout(() => {
+        const resultMessage = gameEndPageElement.children[0];
+
+        if (pLife <= 0 && cLife > 0) {
+            resultMessage.textContent = '컴퓨터 승리!';
+            gameEndPageElement.classList.add('visible');
+            backdropElement.classList.add('visible');
+            gameIsRunning = false;
+        } else if (cLife <= 0 && pLife > 0) {
+            resultMessage.textContent = `${userNameElement.textContent} 승리!`;
+            gameEndPageElement.classList.add('visible');
+            backdropElement.classList.add('visible');
+            gameIsRunning = false;
+        } else if (cLife <= 0 && pLife <= 0) {
+            resultMessage.textContent = '무승부!';
+            gameEndPageElement.classList.add('visible');
+            backdropElement.classList.add('visible');
+            gameIsRunning = false;
+        }
+
+    }, 2000);
 }
 
 const endRound = () => {
@@ -134,19 +148,50 @@ const endRound = () => {
     }, INTERVAL_TIME + 1500);
 };
 
-for (let button of rspButtonsElement) {
-    button.addEventListener('click', () => {
-        if (gameIsRunning && !roundIsRunning) {
-            const playerChoice = getPlayerChoice(button);
-            const computerChoice = getComputerChoice();
-            const winner = getWinner(playerChoice, computerChoice);
-            closeButtonPanel(button);
-            showChoiceInPanel(playerChoice, computerChoice);
-            showGameResultInPanel(winner);
-            dealDamage(winner);
-            checkGameIsOver(playerLife, computerLife);
-            endRound();
-            console.log(playerLife, computerLife)
-        }
-    });
-}
+const gameStart = () => {
+    for (let button of rspButtonsElement) {
+        button.addEventListener('click', () => {
+            if (gameIsRunning && !roundIsRunning) {
+                const playerChoice = getPlayerChoice(button);
+                const computerChoice = getComputerChoice();
+                const winner = getWinner(playerChoice, computerChoice);
+                closeButtonPanel(button);
+                showChoiceInPanel(playerChoice, computerChoice);
+                showGameResultInPanel(winner);
+                dealDamage(winner);
+                endRound();
+                console.log(playerLife, computerLife)
+                checkGameIsOver(playerLife, computerLife);
+            }
+        });
+    }
+};
+
+const gameStartBtnHandler = () => {
+    if (userNameInput.value === '') {
+        alert('이름을 입력하세요');
+        return;
+    }
+    const titlePage = document.body.children[0];
+    titlePage.classList.add('invisible');
+    userNameElement.textContent = userNameInput.value;
+    gameStart();
+};  
+
+const retryButtonHandler = () => {
+    gameEndPageElement.classList.remove('visible');
+    backdropElement.classList.remove('visible');
+    
+    playerLife = 100;
+    computerLife = 100;
+
+    computerLifeBarElement.style.width = `${computerLife}%`;
+    playerLifeBarElement.style.width = `${playerLife}%`;
+
+    gameIsRunning = true;
+    roundIsRunning = false;
+    gameStart();
+};
+
+gameStartButtonElement.addEventListener('click', gameStartBtnHandler);
+retryButtonElement.addEventListener('click', retryButtonHandler);

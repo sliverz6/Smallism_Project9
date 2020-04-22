@@ -1,12 +1,16 @@
-* {
-    box-sizing: border-box;
-}
-
 #wrap {
-    width: 600px;
-    height: 800px;
+    text-align: center;
+    padding: 30px;
+    width: 700px;
+    height: 850px;
     border: 3px solid salmon;
     border-radius: 5px;
+}
+
+.display::after {
+    content: '';
+    display: block;
+    clear: both;
 }
 
 .cards {
@@ -14,12 +18,30 @@
 }
 
 .card {
-    width: 150px;
-    height: 150px;
-    margin: 20px;
+    cursor: pointer;
+    width: 120px;
+    height: 120px;
+    margin: 15px;
     background: salmon;
     border-radius: 4px;
     float: left;
+    color: #fff;
+    font-size: 30px;
+    text-align: center;
+    line-height: 120px;
+    transition: background-color 0.2s;
+}
+
+.card.clicked {
+    background-color: slateblue;
+}
+
+.user-input {
+    padding: 0 50px;
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+    font-size: 20px;
 }
 
 .start-btn {
@@ -27,5 +49,4 @@
     padding: 0 30px;
     background-color: slateblue;
     color: #fff;
-}
-
+} 

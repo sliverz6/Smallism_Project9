@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <title>슬라임 헌터</title>
+
+    <!-- META -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="LEE MYUNG JOON, LEE SEUNG JAE">
+    <meta name="description" content="이제 막 전투학교를 졸업한 젊은 용사, 슬라임으로부터 마을을 지켜내라!">
+    <meta name="keyword" content="슬라임헌터, Slimehunter, project9, smallism">
+    <meta name="generator" content="Visual Studio Code">
+ 
+    <!-- FAVICON -->
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="resource/css/reset.css">
+    <link rel="stylesheet" href="resource/css/style.css">
+    <link rel="stylesheet" href="resource/css/mobile.css" media="(max-width:580px)">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css" />
+
+    <!-- FONTS -->
+
+    <!-- SCRIPTS -->
+    <script src="resource/js/DOM.js" defer></script>
+    <script src="resource/js/script.js" defer></script>
+</head>
+<body>
+    
+    <div id="main">
+        <section id="rsp-select">
+            <button class="rsp-select-btn" id="select__rock">
+                <i class="fas fa-hand-rock"></i>
+            </button>
+            <button class="rsp-select-btn" id="select__scissors">
+                <i class="fas fa-hand-peace"></i>
+            </button>
+            <button class="rsp-select-btn" id="select__paper">
+                <i class="fas fa-hand-paper"></i>
+            </button>
+        </section>
+        <header id="header">
+            <div id="player-state">
+                <div class="player-state__life">
+                    <div class="life__text">HP</div>
+                    <div class="life__bar">
+                        <div class="bar--energy"></div>
+                    </div>
+                </div>
+                <div class="player-state__info">
+                    <div class="info--player-name">이명준</div>
+                    <div class="info--selected-rsp"><i></i></div>
+                </div>
+            </div>
+            <div id="damage">
+                <h3 class="damage__count"></h3>
+            </div>
+            <div id="com-state">
+                <div class="com-state__life">
+                    <div class="life__text">HP</div>
+                    <div class="life__bar">
+                        <div class="bar--energy"></div>
+                    </div>
+                </div>
+                <div class="com-state__info">
+                    <div class="info--player-name">COM</div>
+                    <div class="info--selected-rsp"><i></i></div>
+                </div>
+            </div>
+        </header>
+        <section id="battle-area">
+            <div class="battle-area__player"><img src="resource/img/player-character.gif" alt=""></div>
+            <div class="battle-area__com"><img src="resource/img/practice.gif" alt=""></div>
+        </section>
+    </div>
+</body>
+</html>

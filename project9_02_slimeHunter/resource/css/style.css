@@ -1,0 +1,284 @@
+@charset 'utf-8';
+/************************************************/
+/* BASIC SETTING */
+/************************************************/
+
+
+.clearfix::after {
+    content: '';
+    display: block;
+    clear: both;
+}
+
+#win-denote{
+    background-color: aqua;
+    color: #111;
+}
+
+/* 애니메이션 */
+@keyframes header_ani{
+    from {
+        top: 0;
+    }
+    to {
+        top: 40px;
+    }
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes rsp-select_ani{
+    from {
+        bottom: 0;
+    }
+    to {
+        bottom: 80px;
+    }
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+
+/***** 폰트 *****/
+
+
+/***** 레이아웃 *****/
+#main {
+    height: 100vh;
+    position: relative;
+    background:url('../img/background.jpg') no-repeat center center / cover;
+    color: aqua;
+}
+
+#rsp-select {
+    min-width:500px;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 10%;
+    text-align: center;
+    z-index: 1;
+    animation: rsp-select_ani 1s forwards 1 alternate ease-out ;  
+}
+
+#header {
+    position: relative;
+    text-align: center;
+    /* top: 0; */
+    height: 20%;
+    animation: header_ani 1s forwards 1 alternate ease-out ;    
+}
+
+#player-state, #com-state {
+    width: 40%;
+    height: 100%;
+    background: none;
+    float: left;
+}
+
+#damage {
+    float: left;
+    width: 20%;
+    /* margin-top: 28px; */
+    border: 4px solid aqua;
+    border-radius:5px;
+    background: #111;
+}
+
+#battle-area {
+    position: relative;
+    width: 100%;
+    height: 80%;
+}
+
+
+/************************************************/
+/* COMPONENTS */
+/************************************************/
+
+
+
+/************************************************/
+/* RSP-SELECT-SECTION */
+/************************************************/
+
+/*------ rsp-select ------ */
+
+
+
+.rsp-select-btn i:hover {
+    background: linear-gradient( to bottom, rgb(113, 255, 255), rgb(174, 255, 228) );
+}
+
+.rsp-select-btn i:active {
+    transform: translateY(5px);
+    box-shadow: none;
+    background:rgb(10, 212, 212);
+}
+
+.rsp-select-btn i {
+    font-size: 80px;
+    display: inline-block;
+    padding:30px;
+    background: linear-gradient( to bottom, aqua, aquamarine );
+    box-shadow: 0px 6px 0px rgb(0, 161, 161);
+    margin: 0 5px;
+    border-radius: 100%;
+    cursor: pointer;
+}
+
+.rsp-select-btn.invisible {
+    display: none;
+}
+
+
+/************************************************/
+/* HEADER */
+/************************************************/
+
+/* -----PLATER-STATE-LIFE------ */
+
+.player-state__life { 
+    padding:  0 30px 30px 30px;
+    overflow: auto;
+    text-align: center;
+}
+
+.life__text { 
+    width: 20%;
+    height: 42px;
+    float: left;
+    padding:10px 0;
+    margin-right: 2%;
+    background: #111;
+}
+
+.life__bar { 
+    width: 78%;
+    float: left;
+    border: 1px solid #333;
+    background: rgb(73, 5, 5);
+}
+
+.bar--energy {
+    transition: width 0.3s;
+    width: 100%;
+    height: 42px;
+    background: red;
+}
+
+/* -----PLAYER-STATE-INFO------ */
+
+.player-state__info {
+    padding: 0 30px;
+    overflow: auto;
+}
+
+.info--player-name { 
+    width: 48%;
+    float: left;
+    margin-right: 2%;
+    padding: 10px 0;
+    background: #111;
+}
+
+
+.info--selected-rsp { 
+    width: 50%;
+    height: 41px;
+    float: left;
+    background: #111;
+    font-size: 28px;
+}
+
+/* -----DAMAGE__COUNT----- */
+
+.damage__count {
+    font-size: 32px;
+    padding-top: 30px;
+    height: 110px;
+    color: aqua;
+    
+}
+
+
+/* -----COM-STATE-LIFE------ */
+
+.com-state__life { 
+    padding:  0 30px 30px 30px;
+    overflow: auto;
+    text-align: center;
+}
+
+.com-state__life .life__text { 
+    float: right;
+    height: 42px;
+    margin-left: 2%;
+    margin-right: 0;
+}
+
+.com-state__life .life__bar { 
+    width: 78%;
+    float: right;
+    border: 1px solid #333;
+}
+
+.com-state__life .bar--energy { 
+    width: 100%;
+    height: 42px;
+    float: right;
+}
+
+/* -----COM-STATE-INFO------ */
+
+.com-state__info {
+    padding: 0 30px;
+    overflow: auto;
+}
+
+.com-state__info .info--player-name { 
+    width: 48%;
+    float: right;
+    margin-left: 2%;
+    margin-right: 0;
+}
+
+
+.com-state__info .info--selected-rsp { 
+    width: 50%;
+    float: rgiht;
+    border: 1px solid #333;
+}
+
+/************************************************/
+/* BATTLE-AREA-SECTION */
+/************************************************/
+
+.battle-area__player {
+    position: absolute;
+    top: 35%;
+    left: 20%;
+    transform: translate(-50%,-50%);
+    text-align: center;
+}
+
+.battle-area__com {
+    position: absolute;
+    top: 35%;
+    right: 20%;
+    transform: translate(50%,-50%);
+    text-align: center;
+}
+
+.battle-area__com img{
+    height: 160px;
+}
+

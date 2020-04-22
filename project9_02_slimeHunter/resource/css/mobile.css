@@ -1,0 +1,117 @@
+/* ANI */
+@keyframes header_ani{
+    from {
+        top: 0;
+    }
+    to {
+        top: 30px;
+    }
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+
+
+/* LAYOUT */
+#main {
+    padding:  0 30px;
+}
+
+
+#damage {
+   width: 100%;
+   display: block;
+   position: absolute;
+   bottom: 0;
+}
+
+#player-state, #com-state {
+    width: 50%;
+    height: 100%;
+    background: none;
+}
+
+/* -----DAMAGE__COUNT----- */
+
+.damage__count {
+    font-size: 28px;
+    line-height: 50px;
+    padding-top:0;
+    height: 50px;
+    color: aqua;
+    overflow: auto;
+    
+}
+
+/* -----PLATER-STATE-LIFE------ */
+
+.player-state__life { 
+    padding: 0;
+    width: 98%;
+}
+
+
+/* -----PLAYER-STATE-INFO------ */
+
+.player-state__info {
+    margin-top: 5px;
+    padding: 0;
+    width: 98%;
+}
+
+
+
+
+/* -----COM-STATE-LIFE------ */
+
+.com-state__life { 
+    padding:  0;
+    width: 98%;
+    float: right;
+}
+
+.com-state__life .life__text { 
+    float: right;
+    height: 44px;
+    margin-left: 2%;
+    margin-right: 0;
+}
+
+.com-state__life .life__bar { 
+    width: 78%;
+    float: right;
+    border: 1px solid #333;
+}
+
+.com-state__life .bar--energy { 
+    width: 100%;
+    height: 42px;
+    float: right;
+}
+
+/* -----COM-STATE-INFO------ */
+
+.com-state__info {
+    margin-top: 5px;
+    padding: 0;
+    float: right;
+    width: 98%;
+}
+
+.com-state__info .info--player-name { 
+    width: 48%;
+    float: right;
+    margin-left: 2%;
+    margin-right: 0;
+}
+
+
+.com-state__info .info--selected-rsp { 
+    width: 50%;
+    float: rgiht;
+    border: 1px solid #333;
+}

@@ -128,10 +128,9 @@ button:active {
 /***** HERO CONTAINER *****/
 
 .header--hero {
-    background: #ff4760;
+    background: #ff3434 ;
     padding:10px 0;
-    height:100vh;
-
+    height:calc(100vh - 80px);
 }
 
 .hero h1{

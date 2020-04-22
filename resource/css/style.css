@@ -126,7 +126,7 @@ li {
 
 .card.project_1 > .card_img {color: #ff3434; background-image: url(../img/project1_thumb.PNG);}
 .card.project_2 > .card_img {color: #ffbb34; background-image: url(../img/project2_thumb.PNG);}
-.card.project_3 > .card_img {color: #ff00a1;}
+.card.project_3 > .card_img {color: #ff00a1; background-image: url(../img/project3_thumb.PNG);}
 .card.project_4 > .card_img {color: #3ce9a8;}
 .card.project_5 > .card_img {color: #34ceff;}
 .card.project_6 > .card_img {color: #d6ff00;}

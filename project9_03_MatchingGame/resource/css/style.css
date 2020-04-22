@@ -22,3 +22,10 @@
     float: left;
 }
 
+.start-btn {
+    cursor: pointer;
+    padding: 0 30px;
+    background-color: slateblue;
+    color: #fff;
+}
+

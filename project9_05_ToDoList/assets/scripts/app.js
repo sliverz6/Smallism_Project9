@@ -9,7 +9,7 @@ class Calendar {
         this.dayOfWeek = this.dayOfWeekList[this.date.getDay()];
 
         const dateEl = document.querySelector('.date');
-        dateEl.innerHTML = `${this.dayOfWeek}, <span>${this.day} ${this.month}<span>`;
+        dateEl.innerHTML = `${this.dayOfWeek}, <span class="r-font-weight">${this.day} ${this.month}<span>`;
     }
 }
 

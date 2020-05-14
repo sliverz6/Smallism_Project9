@@ -89,10 +89,33 @@ body {
     right: 10%;
     border-radius: 100%;
     background: #25F3CC;
+    width: 4rem;
+    height: 4rem;
+    box-shadow: 2px 2px 5px #eee;
+}
+
+.add-task-btn:hover {
+   background: #2dddbd;
+   transform: scale(1.1);
+   transition: 0.2s ease-in-out;
 }
 
 .add-task-btn__icon {
+    color: #fff;
+    padding: 1.5rem;
+}
 
+.add-task-btn__icon:hover {
+    animation: icon 2s 1;
+}
+
+@keyframes icon {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
 }
 
 

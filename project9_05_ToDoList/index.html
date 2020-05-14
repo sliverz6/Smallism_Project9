@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <title>to-do-list</title>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/style/shared.css">
+    <link rel="stylesheet" href="assets/style/app.css">
+
+    <script src="https://kit.fontawesome.com/5cccd1202d.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <section class="backdrop invisible">
+        <section class="modal">
+            <header class="main-header">
+                <input type="text" placeholder="할 일을 작성하세요.">
+            </header>
+            <footer class="control-pannel">
+                <button><i class="fas fa-arrow-left"></i></button>
+                <button><i class="fas fa-plus"></i></button>
+            </footer>
+    </section>
+    </section>
+    <section class="todolist">
+            <header class="main-header">
+                <div class="date-container">
+                    <h2 class="date">Tuesday,<span>14 May</span></h2>
+                </div>
+                <div class="task-container clearfix">    
+                    <article class="created-task">
+                        <h3 class="created-number">06</h3>
+                        <h4 class="created-text">Created task</h4>
+                    </article>
+                    <article class="completed-task">
+                        <h3 class="completed-number">03</h3>
+                        <h4 class="completed-text">Completed task</h4>
+                    </article>
+                </div>
+            </header>
+            <main class="todolist-contents">
+                <article class="todolist-content">
+                    <button class="todolist__check-container">
+                        <i class="fas fa-check"></i>
+                    </button>
+                    <p class="todolist__text">이빨닦기</p>
+                    <button><i class="fas fa-trash-alt"></i></button>
+                </article>
+            </main>
+            <footer class="control-pannel">
+                <button><i class="fas fa-plus"></i></button>
+            </footer>
+    </section>
+</body>
+</html>

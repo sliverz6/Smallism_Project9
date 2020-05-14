@@ -1,0 +1,93 @@
+body {
+    background: #25F3CC;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 5;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.backdrop.invisible {
+    display: none;
+}
+
+.modal {
+    background: #fff;
+    border-radius: 2rem;
+    width: 25rem;
+    height: 30rem;
+    padding: 2rem;
+    position: relative; 
+}
+
+
+.todolist {
+    background: #fff;
+    border-radius: 2rem;
+    width: 25rem;
+    height: 30rem;
+    padding: 2rem;
+    position: relative;
+}
+
+.main-header {
+    margin-top: 2rem;
+}
+
+
+.date {
+}
+
+.created-task {
+    float: left;
+    width: 50%;
+}
+
+.completed-task {
+    width: 50%;
+    float: left;
+    text-align: right;
+}
+
+
+
+.todolist-content {
+    display: flex;
+    justify-content: space-between;
+}
+
+.todolist-text {
+    float: left;
+}
+
+.todolist__check-container {
+    flex-basis: 10%;
+}
+
+.todolist__text {
+    flex-basis: 80%;
+}
+
+.fa-trash-alt {
+    flex-basis: 10%;
+}
+
+
+.control-pannel {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}

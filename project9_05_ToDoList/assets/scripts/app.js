@@ -23,20 +23,24 @@ class Task {}
 
 class AddTaskBtn {
     constructor() {
-        this.addTastBtn = document.querySelector('.add-task-btn');
+        this.addTastBtnEl = document.querySelector('.add-task-btn');
 
-        this.addTastBtn.addEventListener('click', addTaskHandler);
+        this.addTastBtnEl.addEventListener('click', this.addTaskHandler);
     }
 
     addTaskHandler() {
         const addTaskModalEl = document.querySelector('.add-task-modal');
-        const backdropEl = document.
+        const backdropEl = document.getElementById('backdrop');
+
+        addTaskModalEl.classList.add('visible');
+        backdropEl.classList.add('visible');
     }
 }
 
 class App {
     static init() {
         new Calendar().render();
+        new AddTaskBtn();
     }
 }
 

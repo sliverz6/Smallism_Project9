@@ -25,7 +25,7 @@ class Task {}
 
 class AddTask {
     constructor() {
-        this.addTastBtn = document.
+        // this.addTastBtn = document.
     }
 
     addNewTast() {

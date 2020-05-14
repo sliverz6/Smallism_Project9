@@ -94,16 +94,13 @@ body {
     justify-content: space-between;
 }
 
-.todolist-text {
+.content__text {
     float: left;
-}
-
-.todolist__check-container {
-    flex-basis: 10%;
-}
-
-.todolist__text {
     flex-basis: 80%;
+}
+
+.content__check {
+    flex-basis: 10%;
 }
 
 .fa-trash-alt {

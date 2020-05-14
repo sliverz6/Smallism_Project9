@@ -17,7 +17,9 @@ class Calendar {
     }
 }
 
-class CreatedTask {}
+class TaskLog {}
+
+class TaskList {}
 
 class Task {}
 

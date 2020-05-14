@@ -7,22 +7,8 @@ body {
     align-items: center;
 }
 
-.backdrop {
-    position: fixed;
-    top: 0;
-    left: 0;
-    z-index: 5;
-    width: 100vw;
-    height: 100vh;
-    background: rgba(0, 0, 0, 0.5);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
 
-.backdrop.invisible {
-    display: none;
-}
+
 
 .add-task-modal {
     background: #fff;
@@ -30,9 +16,13 @@ body {
     width: 25rem;
     height: 30rem;
     padding: 2rem;
-    position: relative; 
+    position: relative;
+    display: none;
 }
 
+.add-task-modal.visible {
+    display: block;
+}
 
 
 .date {
@@ -41,10 +31,6 @@ body {
 
 
 
-.created-task {
-    float: left;
-    width: 50%;
-}
 
 .created-number {
     font-size: 1.6rem;
@@ -57,9 +43,9 @@ body {
 }
 
 
+
+
 .completed-task {
-    width: 50%;
-    float: left;
     text-align: right;
 }
 
@@ -73,18 +59,20 @@ body {
     font-weight: 400;
 }
 
-.task {
+
+
+
+.list-items {
     display: flex;
     justify-content: space-between;
 }
 
-.content__text {
-    float: left;
-    flex-basis: 80%;
-}
-
 .content__completed {
     flex-basis: 10%;
+}
+
+.content__text {
+    flex-basis: 80%;
 }
 
 .fa-trash-alt {
@@ -98,12 +86,32 @@ body {
     right: 0;
 }
 
+#task-log {
+    display: flex;
+    justify-content: space-between;
+}
+
+#backdrop.visible {
+    display: block;
+}
+
+#backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 5;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.5);
+    display: none;
+}
+
 #main {
     background: #fff;
     border-radius: 2rem;
     width: 25rem;
     height: 30rem;
-    padding: 2rem;
+    padding: 4rem 2rem;
     position: relative;
 }
 

@@ -18,6 +18,7 @@ body {
     padding: 2rem;
     position: relative;
     display: none;
+    z-index: 2;
 }
 
 .add-task-modal.visible {
@@ -80,11 +81,20 @@ body {
 }
 
 
+
+
 .add-task-btn {
     position: absolute;
-    bottom: 0;
-    right: 0;
+    bottom: 10%;
+    right: 10%;
+    border-radius: 100%;
+    background: #25F3CC;
 }
+
+.add-task-btn__icon {
+
+}
+
 
 #task-log {
     display: flex;
@@ -99,7 +109,7 @@ body {
     position: fixed;
     top: 0;
     left: 0;
-    z-index: 5;
+    z-index: 1;
     width: 100vw;
     height: 100vh;
     background: rgba(0, 0, 0, 0.5);

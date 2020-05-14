@@ -21,6 +21,25 @@ class TaskList {}
 
 class Task {}
 
+class AddTaskModal {
+    render() {
+        this.addTaskModalEl = document.querySelector('.add-task-modal');
+        this.closeModalBtnEl = this.addTaskModalEl.children[1];
+        this.backdropEl = document.getElementById('backdrop');
+
+        this.addTaskModalEl.classList.add('visible');
+        this.backdropEl.classList.add('visible');
+
+        this.backdropEl.addEventListener('click', this.closeTaskModal.bind(this));
+        this.closeModalBtnEl.addEventListener('click', this.closeTaskModal.bind(this));
+    }
+
+    closeTaskModal() {
+        this.backdropEl.classList.remove('visible');
+        this.addTaskModalEl.classList.remove('visible');
+    }
+}
+
 class AddTaskBtn {
     constructor() {
         this.addTastBtnEl = document.querySelector('.add-task-btn');
@@ -29,19 +48,20 @@ class AddTaskBtn {
     }
 
     addTaskHandler() {
-        const addTaskModalEl = document.querySelector('.add-task-modal');
-        const backdropEl = document.getElementById('backdrop');
-
-        addTaskModalEl.classList.add('visible');
-        backdropEl.classList.add('visible');
+        App.startTaskModal();
     }
 }
 
 class App {
-    static addTaskBtn = new AddTaskBtn();
-    static calendar = new Calendar();
+    static startTaskModal () {
+        this.addTaskModal.render();
+    }
 
     static init() {
+        this.addTaskModal = new AddTaskModal();
+        this.addTaskBtn = new AddTaskBtn();
+        this.calendar = new Calendar();
+
         this.calendar.render();
     }
 }

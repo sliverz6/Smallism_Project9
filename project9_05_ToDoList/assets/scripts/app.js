@@ -1,21 +1,22 @@
 class Calendar {
-
     constructor() {
         this.monthList = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
-        this.dayList = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+        this.dayOfWeekList = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
         this.month = this.monthList[new Date().getMonth()];
-        this.day = this.dayList[new Date().getDay()];
-        this.date = new Date().getDate();
+        this.dayOfWeek = this.dayOfWeekList[new Date().getDay()];
+        this.day = new Date().getDate();
     }
 
     render() {
-
+        const dateEl = document.querySelector('.date');
+        dateEl.innerHTML = `${this.dayOfWeek}, <span>${this.day} ${this.month}<span>`;
     }
     
     updateTimeUI() {
-        this.month = new Date().getMonth() + 1;
-        this.day = this.dayList[new Date().getDay()];
-        this.date = new Date().getDate();
+        this.month = this.monthList[new Date().getMonth()];
+        this.dayOfWeek = this.dayList[new Date().getDay()];
+        this.day = new Date().getDate();
+        this.render();
     }
 }
 
@@ -30,3 +31,4 @@ class AddTask {}
 class App {}
 
 const calendar = new Calendar();
+calendar.render();

@@ -6,13 +6,17 @@
     font-family: 'Montserrat', sans-serif;
 }
 
+button {
+    border: none;
+    background: none;
+}
+
 .clearfix::after {
     content: '';
     display: block;
     clear: both;
 }
 
-
-button {
-
+.r-font-weight {
+   font-weight: 400;
 }

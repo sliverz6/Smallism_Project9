@@ -1,15 +1,19 @@
 class Calendar {
     monthList = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
     dayOfWeekList = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
-    
-    render() {
+
+    getNewTime() {
         this.date = new Date();
         this.month = this.monthList[this.date.getMonth()];
         this.day = this.date.getDate();
         this.dayOfWeek = this.dayOfWeekList[this.date.getDay()];
-
+    }
+    
+    render() {
+        this.getNewTime();
         const dateEl = document.querySelector('.date');
-        dateEl.innerHTML = `${this.dayOfWeek}, <span class="r-font-weight">${this.day} ${this.month}<span>`;
+        dateEl.innerHTML = `${this.dayOfWeek}, <span>${this.day} ${this.month}<span>`;
+        dateEl.lastElementChild.className = 'r-font-weight';
     }
 }
 
@@ -19,7 +23,15 @@ class CompleteTast {}
 
 class Task {}
 
-class AddTask {}
+class AddTask {
+    constructor() {
+        this.addTastBtn = document.
+    }
+
+    addNewTast() {
+        
+    }
+}
 
 class App {
     static init() {

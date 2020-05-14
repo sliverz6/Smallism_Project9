@@ -24,7 +24,7 @@ body {
     display: none;
 }
 
-.modal {
+.add-task-modal {
     background: #fff;
     border-radius: 2rem;
     width: 25rem;
@@ -34,26 +34,12 @@ body {
 }
 
 
-.todolist {
-    background: #fff;
-    border-radius: 2rem;
-    width: 25rem;
-    height: 30rem;
-    padding: 2rem;
-    position: relative;
-}
-
-.main-header {
-    margin-top: 2rem;
-}
 
 .date {
     font-size: 2rem;
 }
 
-.task-container {
-    padding: 1.5rem 0;
-}
+
 
 .created-task {
     float: left;
@@ -87,9 +73,7 @@ body {
     font-weight: 400;
 }
 
-
-
-.content {
+.task {
     display: flex;
     justify-content: space-between;
 }
@@ -99,7 +83,7 @@ body {
     flex-basis: 80%;
 }
 
-.content__check {
+.content__completed {
     flex-basis: 10%;
 }
 
@@ -108,8 +92,25 @@ body {
 }
 
 
-.control-pannel {
+.add-task-btn {
     position: absolute;
     bottom: 0;
     right: 0;
+}
+
+#main {
+    background: #fff;
+    border-radius: 2rem;
+    width: 25rem;
+    height: 30rem;
+    padding: 2rem;
+    position: relative;
+}
+
+#task-log {
+    padding: 1.5rem 0;
+}
+
+#main-header {
+    margin-top: 2rem;
 }

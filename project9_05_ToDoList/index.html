@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="ko">
+
 <head>
     <title>to-do-list</title>
 
@@ -12,48 +13,43 @@
 
     <script src="assets/scripts/app.js" defer></script>
 </head>
+
 <body>
-    <section class="backdrop invisible">
-        <section class="modal">
-            <header class="main-header">
-                <input type="text" placeholder="할 일을 작성하세요.">
-            </header>
-            <footer class="control-pannel">
-                <button><i class="fas fa-arrow-left"></i></button>
-                <button><i class="fas fa-plus"></i></button>
-            </footer>
-        </section>
-    </section>
-    <section class="todolist">
-            <header class="main-header">
-                <div class="date-container">
-                    <h2 class="date">Tuesday,<span class="r-font-weight">14 May</span></h2>
-                </div>
-                <div class="task-container clearfix">    
-                    <article class="created-task">
-                        <h3 class="created-number">06</h3>
-                        <h4 class="created-text">Created task</h4>
-                    </article>
-                    <article class="completed-task">
-                        <h3 class="completed-number">03</h3>
-                        <h4 class="completed-text">Completed task</h4>
-                    </article>
-                </div>
-            </header>
-            <main class="contents">
-                <article class="content">
-                    <button class="content__check">
-                        <i class="fas fa-check"></i>
-                    </button>
-                    <p class="content__text">이빨닦기</p>
-                    <button class="control-delete"><i class="fas fa-trash-alt"></i></button>
-                </article>
-            </main>
-            <footer class="control-pannel">
-                <button class="control-plus"><i class="fas fa-plus"></i></button>
-            </footer>
+    <div id="backdrop invisible"></div>
+
+    <section class="add-task-modal invisible">
+        <input type="text" placeholder="할 일을 작성하세요.">
+        <button class="close-add-modal-btn"><i class="fas fa-arrow-left"></i></button>
+        <button class="confirm-add-modal-btn"><i class="fas fa-plus"></i></button>
     </section>
 
-    <script src="https://kit.fontawesome.com/5cccd1202d.js" crossorigin="anonymous"></script>
+    <main id="main">
+        <h1 class="date">Tuesday,<span class="r-font-weight">14 May</span></h1>
+
+        <section id="task-log" class="clearfix"> 
+            <div class="created-task">
+                <h3 class="created-number">06</h3>
+                <h4 class="created-text">Created task</h4>
+            </div>
+            <div class="completed-task">
+                <h3 class="completed-number">03</h3>
+                <h4 class="completed-text">Completed task</h4>
+            </div>
+        </section>
+
+        <section id="tasks">
+            <ul class="task">
+                <li>
+                    <button class="content__completed"><i class="fas fa-check"></i></button>
+                    <p class="content__text">이빨닦기</p>
+                    <button class="remove-task-btn"><i class="fas fa-trash-alt"></i></button>
+                </li>
+            </ul>
+        </section>
+
+        <button class="add-task-btn"><i class="fas fa-plus"></i></button>
+    </main>
+
+<script src="https://kit.fontawesome.com/5cccd1202d.js" crossorigin="anonymous"></script>
 </body>
 </html>

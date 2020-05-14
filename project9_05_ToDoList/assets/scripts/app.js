@@ -19,17 +19,18 @@ class Calendar {
 
 class CreatedTask {}
 
-class CompleteTast {}
-
 class Task {}
 
-class AddTask {
+class AddTaskBtn {
     constructor() {
-        // this.addTastBtn = document.
+        this.addTastBtn = document.querySelector('.add-task-btn');
+
+        this.addTastBtn.addEventListener('click', addTaskHandler);
     }
 
-    addNewTast() {
-        
+    addTaskHandler() {
+        const addTaskModalEl = document.querySelector('.add-task-modal');
+        const backdropEl = document.
     }
 }
 

@@ -22,11 +22,13 @@ class TaskList {}
 class Task {}
 
 class AddTaskModal {
-    render() {
+    constructor() {
         this.addTaskModalEl = document.querySelector('.add-task-modal');
         this.closeModalBtnEl = this.addTaskModalEl.children[1];
         this.backdropEl = document.getElementById('backdrop');
+    }
 
+    render() {
         this.addTaskModalEl.classList.add('visible');
         this.backdropEl.classList.add('visible');
 

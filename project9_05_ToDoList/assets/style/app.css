@@ -65,19 +65,36 @@ body {
 
 .list-items {
     display: flex;
-    justify-content: space-between;
-}
-
-.content__completed {
-    flex-basis: 10%;
+    justify-content: flex-start;
 }
 
 .content__text {
-    flex-basis: 80%;
+    flex-grow: 2;
+    font-weight: 900;
+    color: #333;
 }
 
-.fa-trash-alt {
-    flex-basis: 10%;
+.remove-task-btn {
+    color: #ccc;
+}
+
+.content__completed {
+    border: 2px solid #666;
+    width: 24px;
+    height: 24px;
+    border-radius: 100%;
+    margin-right: 1rem;
+}
+
+.content__completed:hover {
+    border: 2px solid #25F3CC;
+}
+
+i.content__completed__icon {
+    font-size: 8px;
+    /* display: none; */
+    color:#25F3CC;
+
 }
 
 
@@ -106,10 +123,10 @@ body {
 }
 
 .add-task-btn__icon:hover {
-    animation: icon 2s 1;
+    animation: add-task-btn__icon 2s 1;
 }
 
-@keyframes icon {
+@keyframes add-task-btn__icon {
     0% {
         transform: rotate(0deg);
     }

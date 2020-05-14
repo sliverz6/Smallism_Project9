@@ -1,8 +1,10 @@
 class Calendar {
+
     constructor() {
-        this.dayList = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
-        this.month = new Date().getMonth() + 1;
-        this.day = dayList[new Date().getDay()];
+        this.monthList = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+        this.dayList = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+        this.month = this.monthList[new Date().getMonth()];
+        this.day = this.dayList[new Date().getDay()];
         this.date = new Date().getDate();
     }
 
@@ -12,7 +14,7 @@ class Calendar {
     
     updateTimeUI() {
         this.month = new Date().getMonth() + 1;
-        this.day = dayList[new Date().getDay()];
+        this.day = this.dayList[new Date().getDay()];
         this.date = new Date().getDate();
     }
 }

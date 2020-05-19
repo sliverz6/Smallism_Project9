@@ -1,7 +1,7 @@
 body {
     background: #25F3CC;
     width: 100vw;
-    height: 100vh;
+    min-height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -27,7 +27,18 @@ input[type="text"] {
     position: fixed;
     display: block;
     z-index: 2;
+    animation: add-task-modal 0.3s 1;
 }
+
+@keyframes add-task-modal {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
 
 .date {
     font-size: 2rem;
@@ -66,9 +77,18 @@ input[type="text"] {
 
 
 
+.task {
+    margin-bottom: 3.5rem;
+}
+
 .list-items {
     display: flex;
     justify-content: flex-start;
+    margin: 1rem 0;
+}
+
+.list-items:first-child {
+    margin-top: 0;
 }
 
 .content__text {
@@ -110,8 +130,8 @@ i.content__completed__icon:hover {
 
 .add-task-btn {
     position: absolute;
-    bottom: 10%;
-    right: 10%;
+    bottom: 7%;
+    right: 7%;
     border-radius: 100%;
     background: #25F3CC;
     width: 4rem;
@@ -147,8 +167,8 @@ i.content__completed__icon:hover {
 
 .close-add-modal-btn {
     position: absolute;
-    bottom: 10%;
-    right: 30%;
+    bottom: 7%;
+    right: 27%;
     border-radius: 100%;
     background: #ccc;
     width: 4rem;
@@ -163,8 +183,8 @@ i.content__completed__icon:hover {
 
 .confirm-add-modal-btn {
     position: absolute;
-    bottom: 10%;
-    right: 10%;
+    bottom: 7%;
+    right: 7%;
     border-radius: 100%;
     background: #25F3CC;
     width: 4rem;
@@ -175,6 +195,13 @@ i.content__completed__icon:hover {
 
 .fa-plus {
     color: #fff;
+}
+
+.main-logo {
+    position: absolute;
+    width: 7rem;
+    left: 7%;
+    bottom: 7%;
 }
 
 
@@ -202,7 +229,7 @@ i.content__completed__icon:hover {
     background: #fff;
     border-radius: 2rem;
     width: 25rem;
-    height: 30rem;
+    min-height: 30rem;
     padding: 4rem 2rem;
     position: relative;
 }

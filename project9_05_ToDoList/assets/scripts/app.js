@@ -117,14 +117,14 @@ class TaskList {
             this.taskList[taskIndex].isComplete = true;
             isComplete = true;
             btn.innerHTML = `<i class="fas fa-check"></i>`;
+            taskContentEl.classList.add('clicked');
         } else {
             this.taskList[taskIndex].isComplete = false;
             isComplete = false;
             btn.innerHTML = ``;
+            taskContentEl.classList.add('clicked');
         }
 
-        taskContentEl.classList.toggle('clicked');
-        
         LocalStorageHelper.updateStatusTask(task.id, isComplete);
         App.updateTaskUI(this.taskList);
     }

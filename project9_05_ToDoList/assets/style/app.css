@@ -1,6 +1,6 @@
 body {
     background: #25F3CC;
-    width: 100vw;
+    width: 100%;
     min-height: 100vh;
     display: flex;
     justify-content: center;
@@ -30,21 +30,28 @@ input[type="text"]:focus {
 .add-task-modal {
     background: #fff;
     border-radius: 2rem;
-    width: 25rem;
-    height: 30rem;
+    width: 100%;
+    height: 100%;
     padding: 4rem 2rem;
-    position: fixed;
-    display: block;
+    position: absolute;
+    left: 0;
+    top: 0;
     z-index: 2;
-    animation: add-task-modal 0.3s 1;
+    animation: add-task-modal 0.5s 1;
+    transition: 1s ease-in-out;
 }
 
 @keyframes add-task-modal {
     0% {
-        opacity: 0;
+        width: 0;
+        left: 100%;
+        display: none;
+        
     }
     100% {
-        opacity: 1;
+        width: 100%;
+        left: 0;
+        display: block;
     }
 }
 
@@ -102,6 +109,7 @@ input[type="text"]:focus {
 .task-list__contents {
     display: flex;
     cursor: pointer;
+    width: 100%;
 }
 
 .content__text:hover {
@@ -111,10 +119,12 @@ input[type="text"]:focus {
 
 .task-list__contents.clicked .content__completed {
     border: 2px solid #25F3CC;
+    transition: 0.3s ease-in-out;
 }
 
 .task-list__contents.clicked i {
     color: #25F3CC;
+    
 }
 
 .task-list__contents.clicked p {
@@ -127,7 +137,6 @@ input[type="text"]:focus {
 }
 
 .content__text {
-    flex-grow: 2;
     font-weight: 900;
     color: #333;
 }
@@ -212,6 +221,12 @@ i.content__completed__icon:hover {
     color: #fff;
 }
 
+.close-add-modal-btn:hover {
+    background: #999;
+    transform: scale(1.1);
+    transition: 0.2s ease-in-out;
+}
+
 .confirm-add-modal-btn {
     position: absolute;
     bottom: 7%;
@@ -265,23 +280,24 @@ i.content__completed__icon:hover {
 
 #backdrop {
     position: fixed;
+    display: block;
     top: 0;
     left: 0;
     z-index: 1;
     width: 100vw;
     height: 100vh;
     background: rgba(0, 0, 0, 0.5);
-    display: block;
 }
 
 #main {
     background: #fff;
     border-radius: 2rem;
     width: 25rem;
+    margin: auto;
     min-height: 30rem;
     padding: 4rem 2rem;
     position: relative;
-    box-shadow: 1rem 1rem 6rem hsl(169, 72%, 42%) ;
+    box-shadow: 1rem 1rem 6rem #1eb89c;
 }
 
 #task-log {

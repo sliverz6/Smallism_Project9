@@ -8,25 +8,8 @@
     }
 
     .add-task-modal {
-        width: 100vw;
         height: 100vh;
         top: 0;
         left: 0;
-        height: 100vh;
-        border-radius: 0;
-    }
-
-    .add-task-modal {
-        transition: 1s ease-in-out;
-        animation: add-task-modal 0.5s 1;
-    }
-    
-    @keyframes add-task-modal {
-        0% {
-            transform:translateX(100%);
-        }
-        100% {        
-            transform:translateX(0);
-        }
     }
 }

@@ -18,7 +18,7 @@
 
     .add-task-modal {
         transition: 1s ease-in-out;
-        animation: add-task-modal 1s 1;
+        animation: add-task-modal 0.5s 1;
     }
     
     @keyframes add-task-modal {

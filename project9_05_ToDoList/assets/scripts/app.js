@@ -109,7 +109,7 @@ class TaskList {
         App.updateTaskUI(this.taskList);
     }
 
-    completeTaskHandler(btn, task) {
+    completeTaskHandler(btn, task, taskContentEl) {
         const taskIndex = this.taskList.findIndex(tsk => tsk.id === task.id);
         let isComplete;
         
@@ -123,6 +123,8 @@ class TaskList {
             btn.innerHTML = ``;
         }
 
+        taskContentEl.classList.toggle('clicked');
+        
         LocalStorageHelper.updateStatusTask(task.id, isComplete);
         App.updateTaskUI(this.taskList);
     }
@@ -157,7 +159,10 @@ class TaskList {
 
             const completeTaskBtn = taskEl.querySelector('.content__completed')
             const taskContent = taskEl.querySelector('.task-list__contents');
-            taskContent.addEventListener('click', this.completeTaskHandler.bind(this, completeTaskBtn, task));
+            taskContent.addEventListener(
+                'click', 
+                this.completeTaskHandler.bind(this, completeTaskBtn, task, taskContent)
+            );
 
             const deleteTaskBtn = taskEl.querySelector('.remove-task-btn');
             deleteTaskBtn.addEventListener('click', this.deleteTaskHandler.bind(this, taskEl, task));

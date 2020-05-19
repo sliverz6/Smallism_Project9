@@ -7,8 +7,9 @@ body {
     align-items: center;
 }
 
-
-
+input[type="text"] {
+    font-size: 20px;
+}
 
 .add-task-modal {
     background: #fff;
@@ -17,14 +18,9 @@ body {
     height: 30rem;
     padding: 2rem;
     position: relative;
-    display: none;
+    display: block;
     z-index: 2;
 }
-
-.add-task-modal.visible {
-    display: block;
-}
-
 
 .date {
     font-size: 2rem;
@@ -146,9 +142,9 @@ i.content__completed__icon:hover {
     justify-content: space-between;
 }
 
-#backdrop.visible {
+/* #backdrop.visible {
     display: block;
-}
+} */
 
 #backdrop {
     position: fixed;
@@ -158,7 +154,7 @@ i.content__completed__icon:hover {
     width: 100vw;
     height: 100vh;
     background: rgba(0, 0, 0, 0.5);
-    display: none;
+    display: block;
 }
 
 #main {

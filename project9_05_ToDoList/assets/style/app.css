@@ -1,8 +1,10 @@
 body {
     background: #25F3CC;
-    width: 100%;
-    min-height: 100vh;
-    position: relative;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 
@@ -35,24 +37,14 @@ input[type="text"]:focus {
     left: 0;
     top: 0;
     z-index: 2;
-    animation: add-task-modal cubic-bezier(0.63, 0.21, 0.23, 0.97) 0.7s 1;
+    animation: move-to-left cubic-bezier(0.63, 0.21, 0.23, 0.97) 0.7s 1;
 }
 
 
-
-@keyframes add-task-modal {
-    0% {
-        left: 100%;
-    }
-    100% {
-        left: 0;
-    }
-}
 
 .add-task-modal__title {
     font-size: 2rem;
 }
-
 
 
 .date {
@@ -258,7 +250,6 @@ i.content__completed__icon:hover {
 
 
 
-
 @keyframes rotate {
     0% {
         transform: rotate(0deg);
@@ -267,6 +258,39 @@ i.content__completed__icon:hover {
         transform: rotate(360deg);
     }
 }
+
+@keyframes backdrop {
+    0% {
+        background: rgba(0, 0, 0, 0);
+    }
+
+    100% {
+        background: rgba(0, 0, 0, 0.5);
+    }
+}
+
+@keyframes translate-to-top {
+    0% {
+        opacity: 0;
+        top: 10%;
+    }
+
+    100% {
+        opacity: 1;
+        top: 0;
+    }
+}
+
+@keyframes move-to-left {
+    0% {
+        left: 100%;
+    }
+    100% {
+        left: 0;
+    }
+}
+
+
 
 #task-log {
     display: flex;
@@ -282,37 +306,6 @@ i.content__completed__icon:hover {
     animation: backdrop 0.3s ease-in 1;
 }
 
-@keyframes backdrop {
-    0% {
-        background: rgba(0, 0, 0, 0);
-    }
-
-    100% {
-        background: rgba(0, 0, 0, 0.5);
-    }
-}
-
-#main-wrap {
-    position: absolute;
-    left: 50%;
-    bottom: 50%;
-    transform: translate(-50%, 50%);
-    animation: translate-to-top 0.5s ease-in-out 1;
-}
-
-@keyframes translate-to-top {
-    0% {
-        opacity: 0;
-        bottom: 35%;
-    }
-
-    100% {
-        opacity: 1;
-        bottom: 50%;
-    }
-}
-
-
 
 #main {
     position: relative;
@@ -323,6 +316,7 @@ i.content__completed__icon:hover {
     min-height: 30rem;
     padding: 4rem 2rem;
     box-shadow: 1rem 1rem 6rem #1eb89c;
+    animation: translate-to-top 0.5s ease-in-out 1;
 }
 
 #task-log {

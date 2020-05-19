@@ -89,13 +89,13 @@ input[type="text"]:focus {
     margin-bottom: 3.5rem;
 }
 
-.list-items {
+.task-list{
     display: flex;
     justify-content: flex-start;
     margin: 1rem 0;
 }
 
-.list-items:first-child {
+.task-list:first-child {
     margin-top: 0;
 }
 

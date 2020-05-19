@@ -30,14 +30,21 @@ input[type="text"]:focus {
 .add-task-modal {
     background: #fff;
     border-radius: 2rem;
-    width: 25rem;
+    width: 25rem; 
     height: 30rem;
     padding: 4rem 2rem;
-    position: fixed;
-    display: block;
-    z-index: 2;
+    position: absolute;
+    top: 0;
+    left: 100%;
+    z-index: 3;
     animation: add-task-modal 0.3s 1;
 }
+
+/* #wrap {
+    position: absolute;
+    left: 0;
+    top:0;
+} */
 
 @keyframes add-task-modal {
     0% {
@@ -265,8 +272,6 @@ i.content__completed__icon:hover {
 
 #backdrop {
     position: fixed;
-    top: 0;
-    left: 0;
     z-index: 1;
     width: 100vw;
     height: 100vh;
@@ -275,13 +280,14 @@ i.content__completed__icon:hover {
 }
 
 #main {
+    position: relative;
+    overflow: hidden;
     background: #fff;
     border-radius: 2rem;
     width: 25rem;
     min-height: 30rem;
     padding: 4rem 2rem;
-    position: relative;
-    box-shadow: 1rem 1rem 6rem hsl(169, 72%, 42%) ;
+    box-shadow: 1rem 1rem 6rem hsl(169, 72%, 42%);
 }
 
 #task-log {

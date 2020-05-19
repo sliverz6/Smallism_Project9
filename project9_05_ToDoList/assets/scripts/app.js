@@ -132,7 +132,7 @@ class TaskList {
     deleteTaskHandler(taskEl, task) {
         const taskIndex = this.taskList.findIndex(tsk => tsk.id === task.id);
         this.taskList.splice(taskIndex, 1);
-        
+
         this.renderHook.removeChild(taskEl);
 
         LocalStorageHelper.removeTask(task.id);
@@ -199,6 +199,11 @@ class AddTaskModal {
     }
 
     closeModal() {
+        setTimeout(() => {
+            alert('sdad')
+        }, );
+        set
+
         const addTaskModalEl = document.querySelector('.add-task-modal');
         addTaskModalEl.remove();
         const backdropEl = document.getElementById('backdrop');

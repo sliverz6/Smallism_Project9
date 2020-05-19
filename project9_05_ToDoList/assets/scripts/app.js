@@ -198,14 +198,11 @@ class AddTaskModal {
         this.renderBackdrop();
     }
 
-    closeModal() {
-        const time = setTimeout(() => {
-            alert('sdad')
-        }, 2000)
-
-        clearTimeout(time);
-
+    closeModal() {    
         const addTaskModalEl = document.querySelector('.add-task-modal');
+
+        addTaskModalEl.animate('close-task-modal');
+        
         addTaskModalEl.remove();
         const backdropEl = document.getElementById('backdrop');
         backdropEl.remove();

@@ -278,7 +278,6 @@ class App {
         }
 
         new AddTaskModal();
-        // document.querySelector('.add-task-modal input').focus();
     }
 
     static parsing() {

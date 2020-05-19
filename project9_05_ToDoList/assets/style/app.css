@@ -10,12 +10,17 @@ body {
 
 input[type="text"] {
     width: 100%;
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     padding: 1rem;
-    border-radius: 0.5rem;
-    border: 1px solid #ccc;
+    border-bottom: 2px solid #ccc;
     display: block;
     margin-top: 2rem;
+    outline: none;
+}
+
+input[type="text"]:focus {
+    border-bottom: 2px solid #25F3CC;
+    transition: 0.3s ease-in-out;
 }
 
 .add-task-modal {
@@ -99,6 +104,10 @@ input[type="text"] {
 
 .remove-task-btn {
     color: #ccc;
+}
+
+.remove-task-btn:hover {
+    color: #25F3CC;
 }
 
 .content__completed {

@@ -72,7 +72,9 @@ class TaskLog {
     }
 
     updateUI(taskList) {
-        this.taskNumEl.textContent = `0${taskList.length}`;
+        this.taskNumEl.textContent = taskList.length >= 10 ? 
+            `${taskList.length}` : 
+            `0${taskList.length}`;
 
         let completeTaskNum = 0;
         for (const task of taskList) {
@@ -80,7 +82,10 @@ class TaskLog {
                 completeTaskNum++;
             }
         }
-        this.completeTaskNumEl.textContent = `0${completeTaskNum}`;
+
+        this.completeTaskNumEl.textContent = completeTaskNum >= 10 ?
+            `${completeTaskNum}` :
+            `0${completeTaskNum}`;
     }
 
 }
@@ -253,6 +258,7 @@ class App {
         }
 
         new AddTaskModal();
+        document.querySelector('.add-task-modal input').focus();
     }
 
     static parsing() {

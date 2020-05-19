@@ -199,10 +199,11 @@ class AddTaskModal {
     }
 
     closeModal() {
-        setTimeout(() => {
+        const time = setTimeout(() => {
             alert('sdad')
-        }, );
-        set
+        }, 2000)
+
+        clearTimeout(time);
 
         const addTaskModalEl = document.querySelector('.add-task-modal');
         addTaskModalEl.remove();

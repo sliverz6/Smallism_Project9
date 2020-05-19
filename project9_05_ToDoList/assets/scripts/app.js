@@ -1,6 +1,42 @@
 class LocalStorageHelper {
-    static() {
-        
+    static tasks = 'TASK-LIST';
+
+    static updateStatusTask(taskId, value) {
+        const taskList =LocalStorageHelper.getTask();
+
+        const targetIndex = taskList.findIndex(task => task.id === taskId);
+        taskList[targetIndex].isComplete = value;
+
+        localStorage.setItem(this.tasks, JSON.stringify(taskList));
+    }
+
+    static getTask() {
+        let taskList;
+        if (localStorage.getItem(this.tasks) === null) {
+            taskList = [];
+        } else {
+            taskList = JSON.parse(localStorage.getItem(this.tasks));
+        }
+
+        return taskList;
+    }
+
+    static AddTask(task) {
+       const taskList = LocalStorageHelper.getTask(); 
+       taskList.push(task);
+       localStorage.setItem(this.tasks, JSON.stringify(taskList));
+    }
+
+    static removeTask(taskId) {
+        const taskList = LocalStorageHelper.getTask();
+
+        taskList.forEach((tsk, idx) => {
+            if (tsk.id === taskId) {
+                taskList.splice(idx, 1);
+            }
+        });
+
+        localStorage.setItem(this.tasks, JSON.stringify(taskList));
     }
 }
 
@@ -54,10 +90,14 @@ class TaskList {
 
     constructor() {
         this.renderHook = document.querySelector('.task');
+        this.taskList = LocalStorageHelper.getTask();
+        this.render();
     }
 
     addTask(task) {
         this.taskList.push(task);
+
+        LocalStorageHelper.AddTask(task);
 
         this.render();
 
@@ -66,15 +106,19 @@ class TaskList {
 
     completeTaskHandler(btn, task) {
         const taskIndex = this.taskList.findIndex(tsk => tsk.id === task.id);
-
+        let isComplete;
+        
         if (!this.taskList[taskIndex].isComplete) {
             this.taskList[taskIndex].isComplete = true;
+            isComplete = true;
             btn.innerHTML = `<i class="fas fa-check content__completed__icon"></i>`;
         } else {
             this.taskList[taskIndex].isComplete = false;
+            isComplete = false;
             btn.innerHTML = ``;
         }
 
+        LocalStorageHelper.updateStatusTask(task.id, isComplete);
         App.updateTaskUI(this.taskList);
     }
 
@@ -84,14 +128,12 @@ class TaskList {
         
         this.renderHook.removeChild(taskEl);
 
+        LocalStorageHelper.removeTask(task.id);
+
         App.updateTaskUI(this.taskList);
     }
 
     render() {
-        if (this.taskList.length === 0) {
-            return;
-        }
-
         this.renderHook.innerHTML = ``;
 
         this.taskList.forEach(task => {
@@ -174,6 +216,11 @@ class AddTaskModal {
         closeModalBtn.addEventListener('click', this.closeModal.bind(this));
         
         const taskInput = addTaskModalEl.querySelector('input');
+        taskInput.addEventListener('keydown', event => {
+            if (event.keyCode === 13) {
+                this.confirmTaskHandler(taskInput);
+            }
+        })
         
         const confrimTaskBtn = addTaskModalEl.querySelector('.confirm-add-modal-btn');
         confrimTaskBtn.addEventListener('click', this.confirmTaskHandler.bind(this, taskInput));
@@ -200,6 +247,10 @@ class App {
     }
 
     static startAddTaskHandler() {
+        if (document.querySelector('.add-task-modal')) {
+            return;
+        }
+
         new AddTaskModal();
     }
 

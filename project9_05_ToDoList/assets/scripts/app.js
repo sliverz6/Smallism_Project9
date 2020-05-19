@@ -208,7 +208,7 @@ class AddTaskModal {
                 {transform: 'translateX(0%)'},
                 {transform: 'translateX(100%)'},
             ],
-            {duration: 490, easing: 'cubic-bezier(0.63, 0.21, 0.23, 0.97)'}
+            {duration: 510, easing: 'cubic-bezier(0.63, 0.21, 0.23, 0.97)'}
         );
         const modalAnimation = new Animation(modalKeyFrames, document.timeline);
 
@@ -218,7 +218,7 @@ class AddTaskModal {
                 {opacity: '100'},
                 {opacity: '0'},
             ],
-            {duration: 490}
+            {duration: 510}
         );
         const backdropAnimation = new Animation(backdropKeyFrames);
 

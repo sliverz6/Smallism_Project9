@@ -31,10 +31,12 @@ class TaskList {
         App.updateTaskUI(this.taskList);
     }
 
-    deleteTaskHandler(taskEl) {
-        const taskContent = taskEl.querySelector('.content__text').textContent;
+    deleteTaskHandler(taskEl, taskIndex) {
+        this.taskList.splice(taskIndex, 1);
+        
+        this.renderHook.removeChild(taskEl);
 
-        this.renderHook.remove(taskEl);
+        App.updateTaskUI(this.taskList);
     }
 
     render() {
@@ -44,7 +46,7 @@ class TaskList {
 
         this.renderHook.innerHTML = ``;
 
-        for (const task of this.taskList) {
+        this.taskList.forEach((task, idx) => {
             const taskEl = document.createElement('li');
             taskEl.className = 'list-items';
             taskEl.innerHTML = `
@@ -54,10 +56,10 @@ class TaskList {
             `;
 
             const deleteTaskBtn = taskEl.querySelector('.remove-task-btn');
-            deleteTaskBtn.addEventListener('click', this.deleteTaskHandler.bind(this, taskEl));
+            deleteTaskBtn.addEventListener('click', this.deleteTaskHandler.bind(this, taskEl, idx));
 
             this.renderHook.append(taskEl);
-        }
+        }) 
     }
 }
 

@@ -207,7 +207,7 @@ class AddTaskModal {
                 {transform: 'translateX(0%)'},
                 {transform: 'translateX(100%)'},
             ],
-            {duration: 500, fill: 'forwards'}
+            {duration: 500, easing: 'cubic-bezier(0.63, 0.21, 0.23, 0.97)'}
         );
 
         const modalAnimation = new Animation(modalKeyFrames);

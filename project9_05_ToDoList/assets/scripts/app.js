@@ -2,18 +2,24 @@ class TaskLog {
     constructor(taskList) {
         this.taskList = taskList;
 
-        this.parsing();
+        this.taskNumEl = document.querySelector('.created-number');
+        this.completeTaskNumEl = document.querySelector('.completed-number');
+
+        this.updateUI(taskList);
     }
 
     updateUI(taskList) {
         this.taskNumEl.textContent = `0${taskList.length}`;
+
+        let completeTaskNum = 0;
+        for (const task of taskList) {
+            if (task.isComplete === true) {
+                completeTaskNum++;
+            }
+        }
+        this.completeTaskNumEl.textContent = `0${completeTaskNum}`;
     }
 
-    parsing() {
-        this.taskNumEl = document.querySelector('.created-number');
-
-        this.taskNumEl.textContent = `0${this.taskList.length}`;
-    }
 }
 
 class TaskList {
@@ -31,7 +37,22 @@ class TaskList {
         App.updateTaskUI(this.taskList);
     }
 
-    deleteTaskHandler(taskEl, taskIndex) {
+    completeTaskHandler(btn, task) {
+        const taskIndex = this.taskList.findIndex(tsk => tsk.id === task.id);
+
+        if (!this.taskList[taskIndex].isComplete) {
+            this.taskList[taskIndex].isComplete = true;
+            btn.innerHTML = `<i class="fas fa-check content__completed__icon"></i>`;
+        } else {
+            this.taskList[taskIndex].isComplete = false;
+            btn.innerHTML = ``;
+        }
+
+        App.updateTaskUI(this.taskList);
+    }
+
+    deleteTaskHandler(taskEl, task) {
+        const taskIndex = this.taskList.findIndex(tsk => tsk.id === task.id);
         this.taskList.splice(taskIndex, 1);
         
         this.renderHook.removeChild(taskEl);
@@ -46,17 +67,23 @@ class TaskList {
 
         this.renderHook.innerHTML = ``;
 
-        this.taskList.forEach((task, idx) => {
+        this.taskList.forEach(task => {
             const taskEl = document.createElement('li');
             taskEl.className = 'list-items';
+            const taskCheckBtn = task.isComplete === true ? 
+                ` <button class="content__completed"><i class="fas fa-check content__completed__icon"></i></button>` :
+                `<button class="content__completed"></button>`;
             taskEl.innerHTML = `
-                <button class="content__completed"><i class="fas fa-check content__completed__icon"></i></button>
+                ${taskCheckBtn}
                 <p class="content__text">${task.content}</p>
                 <button class="remove-task-btn"><i class="fas fa-trash-alt"></i></button>
             `;
 
+            const completeTaskBtn = taskEl.querySelector('.content__completed')
+            completeTaskBtn.addEventListener('click', this.completeTaskHandler.bind(this, completeTaskBtn, task));
+
             const deleteTaskBtn = taskEl.querySelector('.remove-task-btn');
-            deleteTaskBtn.addEventListener('click', this.deleteTaskHandler.bind(this, taskEl, idx));
+            deleteTaskBtn.addEventListener('click', this.deleteTaskHandler.bind(this, taskEl, task));
 
             this.renderHook.append(taskEl);
         }) 
@@ -64,8 +91,10 @@ class TaskList {
 }
 
 class Task {
-    constructor(content) {
+    constructor(content, isComplete, id) {
         this.content = content;
+        this.isComplete = isComplete;
+        this.id = id;
     }
 }
 
@@ -90,7 +119,7 @@ class AddTaskModal {
             return;
         }
 
-        const task = new Task(taskInputValue);
+        const task = new Task(taskInputValue, false, Math.random());
         App.addTaskToList(task);
 
         this.closeModal();

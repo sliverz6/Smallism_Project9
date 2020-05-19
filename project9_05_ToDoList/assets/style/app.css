@@ -83,14 +83,19 @@ input[type="text"] {
 }
 
 .content__completed:hover {
-    border: 2px solid #25F3CC;
+    border: 2px solid #999;
+    color:#999;
 }
 
 i.content__completed__icon {
     font-size: 8px;
     /* display: none; */
-    color:#25F3CC;
+    color:#666;
+}
 
+i.content__completed__icon:hover {
+    /* display: none; */
+    color:#999;
 }
 
 

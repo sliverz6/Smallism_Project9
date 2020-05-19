@@ -207,7 +207,8 @@ class AddTaskModal {
         const addTaskModalEl = document.createElement('section');
         addTaskModalEl.className = 'add-task-modal';
         addTaskModalEl.innerHTML = `
-            <input type="text" placeholder="할 일을 작성하세요.">
+            <h2 class="add-task-modal__title">To-do</h2>
+            <input type="text" placeholder="Write your task.">
             <button class="close-add-modal-btn"><i class="fas fa-arrow-left"></i></button>
             <button class="confirm-add-modal-btn"><i class="fas fa-plus"></i></button>
         `;

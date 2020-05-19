@@ -1,3 +1,9 @@
+class LocalStorageHelper {
+    static() {
+        
+    }
+}
+
 class Calendar {
     constructor() {
         this.dateEl = document.querySelector('.date');

@@ -18,6 +18,10 @@ input[type="text"] {
     outline: none;
 }
 
+input::placeholder {
+    color: #ddd;
+}
+
 input[type="text"]:focus {
     border-bottom: 2px solid #25F3CC;
     transition: 0.3s ease-in-out;
@@ -61,7 +65,7 @@ input[type="text"]:focus {
 
 .created-text {
     color: #999;
-    font-size: 20px;
+    font-size: 1.2rem;
     font-weight: 400;
 }
 
@@ -78,7 +82,7 @@ input[type="text"]:focus {
 
 .completed-text {
     color: #999;
-    font-size: 20px;
+    font-size: 1.2rem;
     font-weight: 400;
 }
 
@@ -90,9 +94,11 @@ input[type="text"]:focus {
 }
 
 .task-list{
-    display: flex;
-    justify-content: flex-start;
     margin: 1rem 0;
+}
+
+.task-list__contents {
+    display: flex;
 }
 
 .task-list:first-child {
@@ -107,6 +113,7 @@ input[type="text"]:focus {
 
 .remove-task-btn {
     color: #ccc;
+    transition: 0.3s ease-in-out;
 }
 
 .remove-task-btn:hover {

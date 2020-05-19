@@ -146,14 +146,25 @@ class TaskList {
         this.taskList.forEach(task => {
             const taskEl = document.createElement('li');
             taskEl.className = 'task-list';
-            const taskCheckBtn = task.isComplete === true ? 
-                ` <button class="content__completed"><i class="fas fa-check"></i></button>` :
-                `<button class="content__completed"></button>`;
+            let taskContentArea; 
+            
+            if (task.isComplete) {
+                taskContentArea = `
+                    <div class="task-list__contents clicked">
+                        <button class="content__completed"><i class="fas fa-check"></i></button>
+                        <p class="content__text">${task.content}</p>
+                    </div> 
+                `;
+            } else {
+                taskContentArea = `
+                    <div class="task-list__contents">
+                        <button class="content__completed"></button>
+                        <p class="content__text">${task.content}</p>
+                    </div>
+                `;
+            }
             taskEl.innerHTML = `
-                <div class="task-list__contents">
-                    ${taskCheckBtn}
-                    <p class="content__text">${task.content}</p>
-                </div>
+                ${taskContentArea}
                 <button class="remove-task-btn"><i class="fas fa-trash-alt"></i></button>
             `;
 

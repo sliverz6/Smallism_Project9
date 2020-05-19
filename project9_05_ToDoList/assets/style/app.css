@@ -11,7 +11,7 @@ body {
 input[type="text"] {
     width: 100%;
     font-size: 1.1rem;
-    padding: 1rem;
+    padding: 1rem 0;
     border-bottom: 2px solid #ccc;
     display: block;
     margin-top: 2rem;
@@ -157,22 +157,13 @@ i.content__completed__icon:hover {
    transition: 0.2s ease-in-out;
 }
 
-.add-task-btn__icon {
+.add-task-btn i {
     color: #fff;
     padding: 1.5rem;
 }
 
-.add-task-btn__icon:hover {
-    animation: add-task-btn__icon 2s 1;
-}
-
-@keyframes add-task-btn__icon {
-    0% {
-        transform: rotate(0deg);
-    }
-    100% {
-        transform: rotate(360deg);
-    }
+.add-task-btn i:hover {
+    animation: rotate 2s 1;
 }
 
 
@@ -197,6 +188,7 @@ i.content__completed__icon:hover {
     position: absolute;
     bottom: 7%;
     right: 7%;
+    z-index: 2;
     border-radius: 100%;
     background: #25F3CC;
     width: 4rem;
@@ -204,16 +196,37 @@ i.content__completed__icon:hover {
     box-shadow: 2px 2px 5px #eee;
 }
 
-
-.fa-plus {
-    color: #fff;
+.confirm-add-modal-btn:hover {
+    background: #2dddbd;
+    transform: scale(1.1);
+    transition: 0.2s ease-in-out;
 }
+
+.confirm-add-modal-btn i {
+    color: #fff;
+    padding: 1.5rem;
+}
+ 
+.confirm-add-modal-btn i:hover {
+     animation: rotate 2s 1;
+ }
+ 
 
 .main-logo {
     position: absolute;
     width: 7rem;
     left: 7%;
     bottom: 7%;
+}
+
+
+@keyframes rotate {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
 }
 
 
@@ -240,11 +253,11 @@ i.content__completed__icon:hover {
     min-height: 30rem;
     padding: 4rem 2rem;
     position: relative;
+    box-shadow: 1rem 1rem 6rem hsl(169, 72%, 42%) ;
 }
 
 #task-log {
     padding: 1.5rem 0;
-    border-bottom: 1px solid #dbdbdb;
 }
 
 #main-header {

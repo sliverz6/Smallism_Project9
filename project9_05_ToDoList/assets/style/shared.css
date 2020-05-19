@@ -23,3 +23,7 @@ button {
 .r-font-weight {
    font-weight: 400;
 }
+
+input {
+    outline: none;
+}

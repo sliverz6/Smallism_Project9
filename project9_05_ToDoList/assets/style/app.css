@@ -28,7 +28,7 @@ input[type="text"]:focus {
     border-radius: 2rem;
     width: 25rem;
     height: 30rem;
-    padding: 2rem;
+    padding: 4rem 2rem;
     position: fixed;
     display: block;
     z-index: 2;
@@ -44,12 +44,15 @@ input[type="text"]:focus {
     }
 }
 
-
-.date {
+.add-task-modal__title {
     font-size: 2rem;
 }
 
 
+
+.date {
+    font-size: 2rem;
+}
 
 
 .created-number {
@@ -219,10 +222,6 @@ i.content__completed__icon:hover {
     justify-content: space-between;
 }
 
-/* #backdrop.visible {
-    display: block;
-} */
-
 #backdrop {
     position: fixed;
     top: 0;
@@ -245,6 +244,7 @@ i.content__completed__icon:hover {
 
 #task-log {
     padding: 1.5rem 0;
+    border-bottom: 1px solid #dbdbdb;
 }
 
 #main-header {

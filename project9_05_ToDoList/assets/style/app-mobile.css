@@ -1,9 +1,10 @@
 
 @media (max-width:450px) {
 
+
     #main {
         width: 100vw;
-        height: 100vh;
+        height: 96%;
         margin: 1rem;
     }
 

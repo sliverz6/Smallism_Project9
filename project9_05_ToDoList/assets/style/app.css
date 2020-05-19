@@ -291,12 +291,6 @@ i.content__completed__icon:hover {
 }
 
 
-
-#task-log {
-    display: flex;
-    justify-content: space-between;
-}
-
 #backdrop {
     position: absolute;
     z-index: 1;
@@ -320,6 +314,8 @@ i.content__completed__icon:hover {
 }
 
 #task-log {
+    display: flex;
+    justify-content: space-between;
     padding: 1.5rem 0;
 }
 

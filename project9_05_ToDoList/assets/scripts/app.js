@@ -1,3 +1,24 @@
+class Calendar {
+    constructor() {
+        this.dateEl = document.querySelector('.date');
+
+        this.dayOfWeekList = ['Sunday', 'Monday', 'Tuseday', 'Wednesday', 'Thursday', 'friday', 'saturday'];
+        this.monthList = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+
+        this.updateDate();
+    }
+
+    updateDate() {
+        const date = new Date();
+        const dayOfWeek = this.dayOfWeekList[date.getDay()];
+        const month = this.monthList[date.getMonth()];
+        const day = date.getDate();
+
+        // Tursay,<span class="r-font-weight">14 May</span>
+        this.dateEl.innerHTML = `${dayOfWeek}, <span class="r-font-weight">${day} ${month}</span>`;
+    }
+}
+
 class TaskLog {
     constructor(taskList) {
         this.taskList = taskList;
@@ -180,6 +201,8 @@ class App {
         const startAddTaskBtn = document.querySelector('.add-task-btn');
 
         startAddTaskBtn.addEventListener('click', App.startAddTaskHandler);
+
+        new Calendar();
     }
 }
 

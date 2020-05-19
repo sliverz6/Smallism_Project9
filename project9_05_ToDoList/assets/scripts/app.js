@@ -143,18 +143,21 @@ class TaskList {
 
         this.taskList.forEach(task => {
             const taskEl = document.createElement('li');
-            taskEl.className = 'list-items';
+            taskEl.className = 'task-list';
             const taskCheckBtn = task.isComplete === true ? 
                 ` <button class="content__completed"><i class="fas fa-check"></i></button>` :
                 `<button class="content__completed"></button>`;
             taskEl.innerHTML = `
-                ${taskCheckBtn}
-                <p class="content__text">${task.content}</p>
+                <div class="task-list__contents">
+                    ${taskCheckBtn}
+                    <p class="content__text">${task.content}</p>
+                <div>
                 <button class="remove-task-btn"><i class="fas fa-trash-alt"></i></button>
             `;
 
+            const taskContent = taskEl.querySelector('.task-list__contents');
             const completeTaskBtn = taskEl.querySelector('.content__completed')
-            completeTaskBtn.addEventListener('click', this.completeTaskHandler.bind(this, completeTaskBtn, task));
+            taskContent.addEventListener('click', this.completeTaskHandler.bind(this, completeTaskBtn, task));
 
             const deleteTaskBtn = taskEl.querySelector('.remove-task-btn');
             deleteTaskBtn.addEventListener('click', this.deleteTaskHandler.bind(this, taskEl, task));

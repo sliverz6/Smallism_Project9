@@ -215,7 +215,7 @@ class AddTaskModal {
             <h2 class="add-task-modal__title">To-do</h2>
             <input type="text" placeholder="Write your task.">
             <button class="close-add-modal-btn"><i class="fas fa-arrow-left"></i></button>
-            <button class="confirm-add-modal-btn"><i class="fas fa-plus"></i></button>
+            <button class="confirm-add-modal-btn"><i class="fas fa-plus confirm-add-modal__icon"></i></button>
         `;
         
         const closeModalBtn = addTaskModalEl.querySelector('.close-add-modal-btn');

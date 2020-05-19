@@ -291,6 +291,25 @@ i.content__completed__icon:hover {
     }
 }
 
+#main-wrap {
+    position: absolute;
+    left: 50%;
+    bottom: 50%;
+    /* animation: translate-to-top 0.3s ease-in 1; */
+}
+
+/* @keyframes translate-to-top {
+    0% {
+        bottom: 40%;
+    }
+
+    100% {
+        bottom: 50%;
+    }
+} */
+
+
+
 #main {
     position: relative;
     overflow: hidden;

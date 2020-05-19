@@ -94,6 +94,8 @@ input[type="text"]:focus {
 }
 
 .task-list{
+    display: flex;
+    justify-content: space-between;
     margin: 1rem 0;
 }
 

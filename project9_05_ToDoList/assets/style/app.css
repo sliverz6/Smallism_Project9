@@ -41,23 +41,14 @@ input[type="text"]:focus {
     transition: 1s ease-in-out;
 }
 
-/* #wrap {
-    position: absolute;
-    left: 0;
-    top:0;
-} */
+
 
 @keyframes add-task-modal {
     0% {
-        width: 0;
         left: 100%;
-        display: none;
-        
     }
     100% {
-        width: 100%;
         left: 0;
-        display: block;
     }
 }
 
@@ -298,11 +289,11 @@ i.content__completed__icon:hover {
     background: #fff;
     border-radius: 2rem;
     width: 25rem;
-    margin: auto;
     min-height: 30rem;
     padding: 4rem 2rem;
     position: relative;
     box-shadow: 1rem 1rem 6rem #1eb89c;
+
 }
 
 #task-log {

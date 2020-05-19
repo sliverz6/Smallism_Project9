@@ -146,8 +146,8 @@ class TaskList {
         this.taskList.forEach(task => {
             const taskEl = document.createElement('li');
             taskEl.className = 'task-list';
-            let taskContentArea; 
             
+            let taskContentArea; 
             if (task.isComplete) {
                 taskContentArea = `
                     <div class="task-list__contents clicked">
@@ -163,6 +163,7 @@ class TaskList {
                     </div>
                 `;
             }
+
             taskEl.innerHTML = `
                 ${taskContentArea}
                 <button class="remove-task-btn"><i class="fas fa-trash-alt"></i></button>
@@ -250,7 +251,7 @@ class AddTaskModal {
         const confrimTaskBtn = addTaskModalEl.querySelector('.confirm-add-modal-btn');
         confrimTaskBtn.addEventListener('click', this.confirmTaskHandler.bind(this, taskInput));
         
-        document.body.append(addTaskModalEl);
+        document.getElementById('main').append(addTaskModalEl);
     }
 }
 

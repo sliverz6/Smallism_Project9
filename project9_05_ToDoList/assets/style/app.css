@@ -41,6 +41,12 @@ input[type="text"]:focus {
     transition: 1s ease-in-out;
 }
 
+/* #wrap {
+    position: absolute;
+    left: 0;
+    top:0;
+} */
+
 @keyframes add-task-modal {
     0% {
         width: 0;
@@ -280,9 +286,6 @@ i.content__completed__icon:hover {
 
 #backdrop {
     position: fixed;
-    display: block;
-    top: 0;
-    left: 0;
     z-index: 1;
     width: 100vw;
     height: 100vh;
@@ -290,6 +293,8 @@ i.content__completed__icon:hover {
 }
 
 #main {
+    position: relative;
+    overflow: hidden;
     background: #fff;
     border-radius: 2rem;
     width: 25rem;

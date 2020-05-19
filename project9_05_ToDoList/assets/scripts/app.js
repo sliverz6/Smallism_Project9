@@ -200,6 +200,7 @@ class AddTaskModal {
 
     closeModal() {    
         const addTaskModalEl = document.querySelector('.add-task-modal');
+        const backdropEl = document.getElementById('backdrop');
 
         const modalKeyFrames = new KeyframeEffect(
             addTaskModalEl, 
@@ -209,17 +210,25 @@ class AddTaskModal {
             ],
             {duration: 500, easing: 'cubic-bezier(0.63, 0.21, 0.23, 0.97)'}
         );
+        const modalAnimation = new Animation(modalKeyFrames, document.timeline);
 
-        const modalAnimation = new Animation(modalKeyFrames);
+        const backdropKeyFrames = new KeyframeEffect(
+            backdropEl,
+            [
+                {opacity: '100'},
+                {opacity: '0'},
+            ],
+            {duration: 500}
+        );
+        const backdropAnimation = new Animation(backdropKeyFrames);
 
         modalAnimation.play();
+        backdropAnimation.play();
         
         setTimeout(() => {
             addTaskModalEl.remove();
-            const backdropEl = document.getElementById('backdrop');
             backdropEl.remove();
         }, 500)
-    
     }
 
     confirmTaskHandler(taskInput) {

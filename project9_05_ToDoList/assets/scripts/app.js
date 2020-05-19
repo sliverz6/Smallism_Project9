@@ -155,8 +155,9 @@ class TaskList {
                 <button class="remove-task-btn"><i class="fas fa-trash-alt"></i></button>
             `;
 
-            const completeTaskBtn = taskEl.querySelector('.task-list__contents')
-            completeTaskBtn.addEventListener('click', this.completeTaskHandler.bind(this, completeTaskBtn, task));
+            const taskContent = taskEl.querySelector('.task-list__contents');
+            const completeTaskBtn = taskEl.querySelector('.content__completed')
+            taskContent.addEventListener('click', this.completeTaskHandler.bind(this, completeTaskBtn, task));
 
             const deleteTaskBtn = taskEl.querySelector('.remove-task-btn');
             deleteTaskBtn.addEventListener('click', this.deleteTaskHandler.bind(this, taskEl, task));

@@ -2,7 +2,7 @@ class LocalStorageHelper {
     static tasks = 'TASK-LIST';
 
     static updateStatusTask(taskId, value) {
-        const taskList =LocalStorageHelper.getTask();
+        const taskList = LocalStorageHelper.getTask();
 
         const targetIndex = taskList.findIndex(task => task.id === taskId);
         taskList[targetIndex].isComplete = value;
